@@ -11,9 +11,9 @@
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| fw | — | Versão do firmware da probe utilizada na medição. |
-| mver | — | Versão do formato/modelo de dados da medição. |
-| lts | — | Informação relacionada ao último timestamp/status registrado pela probe. |
+| fw | inteiro | Versão do firmware da probe utilizada na medição. |
+| mver | texto | Versão do formato/modelo de dados da medição. |
+| lts | inteiro | Segundos desde a última sincronização do relógio da probe (*last time synchronized*). |
 | dst_name | texto | Nome associado ao destino da medição. |
 | af | inteiro | Família do endereço IP utilizada na medição. |
 | dst_addr | texto | Endereço IP de destino da medição. |
@@ -24,12 +24,12 @@
 | dup | inteiro | Quantidade de respostas duplicadas observadas. |
 | rcvd | inteiro | Quantidade de pacotes recebidos. |
 | sent | inteiro | Quantidade de pacotes enviados. |
-| min | decimal | Menor RTT registrado na medição. |
-| max | decimal | Maior RTT registrado na medição. |
-| avg | decimal | RTT médio registrado na medição. |
+| min | decimal | Menor RTT registrado na medição (ms). `-1` quando não houve resposta. |
+| max | decimal | Maior RTT registrado na medição (ms). `-1` quando não houve resposta. |
+| avg | decimal | RTT médio registrado na medição (ms). `-1` quando não houve resposta. |
 | msm_id | inteiro | Identificador da medição do RIPE Atlas. |
 | prb_id | inteiro | Identificador da probe responsável pela medição. |
-| timestamp | inteiro | Timestamp associado à medição. |
+| timestamp | inteiro | Instante da medição, em segundos desde 1970-01-01 (UTC). |
 | msm_name | texto | Nome da medição. |
 | from | texto | Identificação da origem associada ao resultado da medição. |
 | type | texto | Tipo da medição. |

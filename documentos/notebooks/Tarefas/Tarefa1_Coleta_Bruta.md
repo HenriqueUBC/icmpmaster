@@ -6,7 +6,7 @@
 
 **Equipe:** ICMPMASTER
 
-**Integrantes:**  Eduardo Quintio Filho, Felipe Veiga da Silva, Henrique de Aguiar Fernandes, Niccolas Lupetti dos Santos, Tharik Lima dos Santos
+**Integrantes:**  Eduardo Quintino Filho, Felipe Veiga da Silva, Henrique de Aguiar Fernandes, Niccolas Lupetti dos Santos, Tharik Lima da Silva
 
 **Scrum Master da tarefa:**  Henrique de Aguiar Fernandes
 
@@ -79,6 +79,11 @@ Regras da coleta:
 
 **Evidências (notebook, commit, trecho do config):**
 
+- Notebook: `documentos/notebooks/Coletas/Coleta_de_dados_v2.0.ipynb` (seções 2 a 8: medições, probes, download dos Períodos A e B, tabela tratada e relatório de qualidade).
+- Config: `config/coleta_config.json` (períodos A e B, medições, probes escolhidas, `chunk_horas`, `timeout_s` e `tentativas`).
+- `requirements.txt` na raiz (requests, pandas, numpy, matplotlib, jupyter).
+- Commits: https://github.com/sgntgifc0c/icmpmaster/commits/main
+
 ## 3. Relatório de qualidade — ainda sem classe
 
 - [x] Registros por `fluxo_id`
@@ -88,10 +93,25 @@ Regras da coleta:
 - [x] Quantidade de timeouts
 - [x] RTT e perda descritos (mínimo, mediana, máximo) **sem** dizer OK, RISCO ou FALHA
 
-**N de registros brutos:**  
-**N de fluxos:**  
-**Caminho curto e caminho longo presentes (quais):**
+**N de registros brutos:** 346714  
+**N de fluxos:** 100  
+**Caminho curto e caminho longo presentes (quais):** Curtos:
+measurement_id	probe_id	pais_origem	pais_destino
+49	8937123	7406	NO	NO
+59	19206759	1016538	EC	EC
+64	22680685	7113	BR	BR
+79	23574809	1010583	ID	ID
+89	29539835	1016347	IE	IE
+90	32089417	7032	PH	PH
 
+Um longo por medição:
+measurement_id	probe_id	pais_origem	pais_destino
+40	8937123	6380	GH	NO
+50	19206759	12849	VE	EC
+60	22680685	6358	UG	BR
+70	23574809	18087	GR	ID
+80	29539835	13347	NO	IE
+91	32089417	17846	IL	PH
 ## 4. Scrum
 
 - [x] Product Owner = docente; Scrum Master da tarefa; time de desenvolvimento
@@ -133,8 +153,8 @@ Regras da coleta:
 
 - Link do RFC:  https://github.com/sgntgifc0c/icmpmaster/blob/main/documentos/notebooks/RFC.md
 - Link do dicionário v0.1: https://github.com/sgntgifc0c/icmpmaster/blob/main/documentos/notebooks/dicionario_v0.1.md
-- Link dos commits:
-- Link de `data/raw/` e do `config/`:
+- Link dos commits: https://github.com/sgntgifc0c/icmpmaster/commits/main
+- Link de `data/raw/` e do `config/`: [`raw/`](https://github.com/sgntgifc0c/icmpmaster/tree/main/raw) e [`config/`](https://github.com/sgntgifc0c/icmpmaster/tree/main/config)
 
 ---
 

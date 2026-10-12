@@ -1,0 +1,154 @@
+{
+  "api": {
+    "base": "https://atlas.ripe.net/api/v2",
+    "timeout_s": 60,
+    "tentativas": 4,
+    "espera_s": 2
+  },
+  "periodos": {
+    "A": {
+      "inicio": "2026-09-06T04:32:00Z",
+      "fim": "2026-09-13T04:32:00Z"
+    },
+    "B": {
+      "inicio": "2026-09-13T04:32:00Z",
+      "fim": "2026-09-20T04:32:00Z"
+    }
+  },
+  "caminhos": {
+    "raw": "raw",
+    "interim": "data/interim",
+    "processed": "data/processed",
+    "legado_2016_json": "raw/probes_csv_1_measurement/ripe_atlas_m2016_20260915T154226Z.json",
+    "legado_5_csvs": "raw/probes_csv_5_measurements"
+  },
+  "coleta": {
+    "probes_por_medicao": 10,
+    "n_medicoes_novas": 6,
+    "seed": 42,
+    "chunk_horas": 24,
+    "janela_amostra_s": 300
+  },
+  "medicoes": [
+    {
+      "msm_id": 2016,
+      "dst_pais": null,
+      "probes": [
+        6488,
+        7020,
+        7588,
+        11226,
+        26109,
+        52037,
+        1012816,
+        1013082,
+        1015745,
+        1016367
+      ]
+    },
+    {
+      "msm_id": 8937123,
+      "dst_pais": "NO",
+      "probes": [
+        6380,
+        6431,
+        6544,
+        6723,
+        6740,
+        6854,
+        7032,
+        7101,
+        7324,
+        7406
+      ]
+    },
+    {
+      "msm_id": 19206759,
+      "dst_pais": "EC",
+      "probes": [
+        12849,
+        24750,
+        34104,
+        35681,
+        60926,
+        61860,
+        1003574,
+        1004280,
+        1014247,
+        1016538
+      ]
+    },
+    {
+      "msm_id": 32089417,
+      "dst_pais": "PH",
+      "probes": [
+        7032,
+        17846,
+        22645,
+        52385,
+        1000755,
+        1002564,
+        1002754,
+        1002841,
+        1011363,
+        1015084
+      ]
+    },
+    {
+      "msm_id": 23574809,
+      "dst_pais": "ID",
+      "probes": [
+        18087,
+        28492,
+        50126,
+        51585,
+        52836,
+        54866,
+        54869,
+        1004421,
+        1007810,
+        1010583
+      ]
+    },
+    {
+      "msm_id": 22680685,
+      "dst_pais": "BR",
+      "probes": [
+        6358,
+        6846,
+        7018,
+        7104,
+        7113,
+        7212,
+        7314,
+        7443,
+        7596,
+        7603
+      ]
+    },
+    {
+      "msm_id": 29539835,
+      "dst_pais": "IE",
+      "probes": [
+        13347,
+        17856,
+        31285,
+        52295,
+        53502,
+        61240,
+        64553,
+        1001602,
+        1004920,
+        1016347
+      ]
+    }
+  ],
+  "rotulagem": {
+    "min_rtt_validos": 1500,
+    "corte": {
+      "treino": 0.5,
+      "validacao": 0.2,
+      "teste": 0.3
+    }
+  }
+}
