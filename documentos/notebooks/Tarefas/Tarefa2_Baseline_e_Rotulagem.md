@@ -5,6 +5,9 @@
 
 **Equipe:**   ICMPMASTER
 
+**Integrantes:**  Eduardo Quintino Filho, Felipe Veiga da Silva, Henrique de Aguiar Fernandes, Niccolas Lupetti dos Santos, Tharik Lima da Silva
+
+
 
 **Scrum Master da tarefa:**   HENRIQUE DE AGUIAR FERNANDES
 
@@ -33,7 +36,7 @@
 
 **Não sai daqui:** árvore treinada, profundidade escolhida, acurácia, F1.
 
-- [ ] O notebook lê o bruto da Tarefa 1
+- [x] O notebook lê o bruto da Tarefa 1
 
 ---
 
@@ -43,13 +46,13 @@
 
 `data/raw/` permanece intocado. A auditoria vai para o diário; a tabela de trabalho, para `data/interim/`.
 
-- [ ] Contagem de linhas, fluxos, duplicatas e RTT vazio
-- [ ] Nenhum RTT ausente foi gravado como 0
-- [ ] Período A e Período B não compartilham timestamp do mesmo fluxo
+- [x] Contagem de linhas, fluxos, duplicatas e RTT vazio
+- [x] Nenhum RTT ausente foi gravado como 0
+- [x] Período A e Período B não compartilham timestamp do mesmo fluxo
 
-**N bruto:**  
-**N de fluxos:**  
-**Evidências:**
+**N bruto:** 346569  
+**N de fluxos:** 100  
+**Evidências:** notebook `documentos/notebooks/Baseline/Baseline_dos_dados.ipynb`, seções 1 e 2.
 
 ## 2. Como obter o baseline
 
@@ -69,18 +72,19 @@ Uma ficha por `fluxo_id`. Só o Período A. O Período B não entra na conta e n
 | Campo da ficha  | Fórmula, somente Período A                                 |
 | --------------- | ---------------------------------------------------------- |
 | `mediana`       | mediana dos RTT válidos (ms)                               |
-| `MAD`           | mediana(                                                   |
+| `MAD`           | mediana(\|RTT − mediana\|), só com RTT válidos            |
 | `jitter_tipico` | mediana do jitter nas medições em que o jitter existe (ms) |
 | `perda_tipica`  | mediana de `perda_pct`, inclusive timeout (%)              |
 | `prop_resposta` | medições com RTT válido / medições do período              |
 
 
-- [ ] Ficha conferida em pelo menos um fluxo curto e um fluxo longo (as medianas podem ser muito diferentes; as duas são “normal”)
-- [ ] Lista dos fluxos excluídos e o motivo (contagem abaixo de 1.500)
+- [x] Ficha conferida em pelo menos um fluxo curto e um fluxo longo (as medianas podem ser muito diferentes; as duas são “normal”)
+- [x] Lista dos fluxos excluídos e o motivo (contagem abaixo de 1.500)
 
-**Fluxos com ficha:**  
-**Fluxos excluídos:**  
-**Exemplo auditável (fluxo curto: mediana; fluxo longo: mediana):**
+**Fluxos com ficha:** 65  
+**Fluxos excluídos:** 5  
+**Exemplo auditável (fluxo curto: mediana; fluxo longo: mediana):** curto: 1010583|103.77.105.3 | mediana 7.21 ms | MAD 4.27 | n válidos 2520
+longo: 1000755|63.222.187.5 | mediana 254.83 ms | MAD 0.24 | n válidos 2517
 
 ## 3. Métricas de cada medição do Período B
 
@@ -127,11 +131,11 @@ Cada linha do Período B, de um fluxo que tenha ficha. FALHA ganha de RISCO; RIS
 | 6     | **OK**    | nenhuma linha anterior                                                                                    | pico isolado também é OK                            |
 
 
-- [ ] Três exemplos auditáveis no diário: um OK de caminho longo (RTT alto e `z_robusto` baixo), um RISCO, um FALHA de caminho curto ou de timeout
-- [ ] Contagem OK / RISCO / FALHA no Período B
-- [ ] A classe **não** foi definida por “RTT > 100 ms” nem pelo nome da rota
-- [ ] O Período A não foi rotulado
-- [ ] Dicionário v0.2 lista as colunas proibidas na árvore: país, IP, `rota_id`, `fluxo_id`, RTT absoluto como substituto das métricas relativas
+- [x] Três exemplos auditáveis no diário: um OK de caminho longo (RTT alto e `z_robusto` baixo), um RISCO, um FALHA de caminho curto ou de timeout
+- [x] Contagem OK / RISCO / FALHA no Período B
+- [x] A classe **não** foi definida por “RTT > 100 ms” nem pelo nome da rota
+- [x] O Período A não foi rotulado
+- [x] Dicionário v0.2 lista as colunas proibidas na árvore: país, IP, `rota_id`, `fluxo_id`, RTT absoluto como substituto das métricas relativas
 
 **Contagem OK / RISCO / FALHA:**  
 **Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):**
@@ -140,12 +144,14 @@ Cada linha do Período B, de um fluxo que tenha ficha. FALHA ganha de RISCO; RIS
 
 Dentro do Período B, por fluxo, em ordem de tempo:
 
-- [ ] Treino = trecho mais antigo; validação = trecho do meio; teste = trecho mais recente
-- [ ] Proporção de partida 50% / 20% / 30%, ajustada se um bloco ficar sem RISCO
-- [ ] Nenhum registro do Período A no treino
-- [ ] Corte com data e N de cada bloco
+- [x] Treino = trecho mais antigo; validação = trecho do meio; teste = trecho mais recente
+- [x] Proporção de partida 50% / 20% / 30%, ajustada se um bloco ficar sem RISCO
+- [x] Nenhum registro do Período A no treino
+- [x] Corte com data e N de cada bloco
 
-**Corte (datas e N treino / validação / teste):**
+**Corte (datas e N treino / validação / teste): Treino: N = 80.450, de 13/09/2026 04:32 a 16/09/2026 18:34 (UTC)
+Validação: N = 32.182, de 13/09/2026 15:14 a 18/09/2026 02:37 (UTC)
+Teste: N = 48.253, de 13/09/2026 19:26 a 20/09/2026 04:31 (UTC)**
 
 ## 6. Scrum e diário
 
