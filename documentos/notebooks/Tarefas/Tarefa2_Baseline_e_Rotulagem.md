@@ -137,7 +137,8 @@ Cada linha do Período B, de um fluxo que tenha ficha. FALHA ganha de RISCO; RIS
 - [x] O Período A não foi rotulado
 - [x] Dicionário v0.2 lista as colunas proibidas na árvore: país, IP, `rota_id`, `fluxo_id`, RTT absoluto como substituto das métricas relativas
 
-**Contagem OK / RISCO / FALHA:**  
+**Contagem OK / RISCO / FALHA:**  125258 / 10621 / 25006
+
 **Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):**
 
 ## 5. Recorte para a árvore (ainda sem treinar)
@@ -149,8 +150,12 @@ Dentro do Período B, por fluxo, em ordem de tempo:
 - [x] Nenhum registro do Período A no treino
 - [x] Corte com data e N de cada bloco
 
-**Corte (datas e N treino / validação / teste): Treino: N = 80.450, de 13/09/2026 04:32 a 16/09/2026 18:34 (UTC)
+**Corte (datas e N treino / validação / teste): 
+
+Treino: N = 80.450, de 13/09/2026 04:32 a 16/09/2026 18:34 (UTC)
+
 Validação: N = 32.182, de 13/09/2026 15:14 a 18/09/2026 02:37 (UTC)
+
 Teste: N = 48.253, de 13/09/2026 19:26 a 20/09/2026 04:31 (UTC)**
 
 ## 6. Scrum e diário

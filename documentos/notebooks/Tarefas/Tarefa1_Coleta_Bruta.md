@@ -108,7 +108,7 @@ Regras da coleta:
 
 
 Um longo por medição:
-measurement_id	probe_id	pais_origem	pais_destino
+
 | measurement_id | probe_id | pais_origem | pais_destino |
 |---------------:|---------:|-------------|--------------|
 | 8937123        | 6380     | GH          | NO           |
