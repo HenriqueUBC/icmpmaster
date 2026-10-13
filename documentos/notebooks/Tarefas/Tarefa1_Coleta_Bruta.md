@@ -96,22 +96,29 @@ Regras da coleta:
 **N de registros brutos:** 346714  
 **N de fluxos:** 100  
 **Caminho curto e caminho longo presentes (quais):** Curtos:
-measurement_id	probe_id	pais_origem	pais_destino
-49	8937123	7406	NO	NO
-59	19206759	1016538	EC	EC
-64	22680685	7113	BR	BR
-79	23574809	1010583	ID	ID
-89	29539835	1016347	IE	IE
-90	32089417	7032	PH	PH
+| measurement_id | probe_id | pais_origem | pais_destino |
+|---------------:|---------:|-------------|--------------|
+| 8937123  | 7406        | NO           | NO           |
+| 19206759 | 1016538     | EC           | EC           |
+| 22680685 | 7113        | BR           | BR           |
+| 23574809 | 1010583     | ID           | ID           |
+| 29539835 | 1016347     | IE           | IE           |
+| 32089417 | 7032        | PH           | PH           |
+
+
 
 Um longo por medição:
 measurement_id	probe_id	pais_origem	pais_destino
-40	8937123	6380	GH	NO
-50	19206759	12849	VE	EC
-60	22680685	6358	UG	BR
-70	23574809	18087	GR	ID
-80	29539835	13347	NO	IE
-91	32089417	17846	IL	PH
+| measurement_id | probe_id | pais_origem | pais_destino |
+|---------------:|---------:|-------------|--------------|
+| 8937123        | 6380     | GH          | NO           |
+| 19206759       | 12849    | VE          | EC           |
+| 22680685       | 6358     | UG          | BR           |
+| 23574809       | 18087    | GR          | ID           |
+| 29539835       | 13347    | NO          | IE           |
+| 32089417       | 17846    | IL          | PH           |
+
+
 ## 4. Scrum
 
 - [x] Product Owner = docente; Scrum Master da tarefa; time de desenvolvimento
