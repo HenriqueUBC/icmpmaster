@@ -140,6 +140,13 @@ Cada linha do Período B, de um fluxo que tenha ficha. FALHA ganha de RISCO; RIS
 **Contagem OK / RISCO / FALHA:**  125258 / 10621 / 25006
 
 **Evidências (três linhas reais, com as métricas e a ordem que disparou a classe):**
+Linhas 84 até 87 em dataset_rotulado.csv
+
+| fluxo_id | timestamp | z_robusto | aumento_pct | jitter_relativo | perda_pct | timeout_atual | n5_timeout | n5_aumento80 | n5_risco | classe | particao |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|
+| 1000755\|63.222.187.5 | 2026-09-13 10:02:59+00:00 | 1.3857982528053363 | 0.1955290328458625 | 0.28255795198970446 | 0.0 | 0 | 0 | 0 | 0 | OK | treino |
+| 1000755\|63.222.187.5 | 2026-09-13 10:07:05+00:00 | 7.572608735896075 | 1.0684562917094964 | 42.200659407443254 | 0.0 | 0 | 0 | 0 | 1 | FALHA | treino |
+| 1000755\|63.222.187.5 | 2026-09-13 10:11:04+00:00 | 0.9782406339026649 | 0.1380247410835637 | 3.7270169627173684 | 0.0 | 0 | 0 | 0 | 2 | RISCO | treino |
 
 ## 5. Recorte para a árvore (ainda sem treinar)
 
