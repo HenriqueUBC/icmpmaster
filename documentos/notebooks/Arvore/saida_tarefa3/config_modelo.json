@@ -1,0 +1,18 @@
+{
+  "criterio": "gini",
+  "max_depth": 8,
+  "min_samples_leaf": 1,
+  "seed": 42,
+  "f1_macro_val": 0.9999191178416997,
+  "raiz_contraste": "z_robusto",
+  "features": [
+    "z_robusto",
+    "aumento_pct",
+    "jitter_relativo",
+    "perda_pct",
+    "timeout_atual",
+    "n5_timeout",
+    "n5_aumento80",
+    "n5_risco"
+  ]
+}
