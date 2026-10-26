@@ -5,3 +5,5 @@ matplotlib
 jupyter
 scikit-learn
 joblib
+streamlit
+plotly

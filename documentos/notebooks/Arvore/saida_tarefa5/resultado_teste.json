@@ -1,0 +1,31 @@
+{
+  "f1_macro_teste": 0.6771578096629322,
+  "recall_falha_teste": 0.6869625520110957,
+  "f1_macro_persistencia": 0.6694875303807573,
+  "n_teste": 47890,
+  "parametros": {
+    "criterio": "gini",
+    "max_depth": 8,
+    "min_samples_leaf": 1,
+    "ccp_alpha": 0.0005,
+    "seed": 42,
+    "horizonte_rodadas": 3,
+    "horizonte_min": 12,
+    "f1_macro_val": 0.7143,
+    "recall_falha_val": 0.6825234789710086,
+    "recall_risco_val": 0.3421793325291516
+  },
+  "features": [
+    "z_robusto",
+    "aumento_pct",
+    "jitter_relativo",
+    "perda_pct",
+    "timeout_atual",
+    "n5_timeout",
+    "n5_aumento80",
+    "n5_risco",
+    "z_delta1",
+    "z_media3_ant",
+    "z_inclin5"
+  ]
+}
