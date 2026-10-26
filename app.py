@@ -5,6 +5,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+import modelo_icmp as mi
+
 
 # ============================================================
 # CONFIGURAÇÃO
@@ -30,9 +32,11 @@ st.title("📡 ICMPMASTER")
 st.subheader("Dashboard de análise de rede")
 
 st.info(
-    "Modo histórico: os dados exibidos já foram coletados e processados. "
-    "Este dashboard ainda não realiza monitoramento ao vivo "
-    "nem gera novas previsões."
+    "Modo histórico com árvore de decisão: os dados já foram coletados e "
+    "processados, e a árvore da Tarefa 4 classifica o estado esperado em "
+    "12 minutos de cada medição. Ainda não há monitoramento ao vivo. "
+    "Use a página Simulador de eventos (menu lateral) para testar OK, "
+    "RISCO e FALHA."
 )
 
 
@@ -42,7 +46,14 @@ st.info(
 
 @st.cache_data
 def carregar_dados(caminho):
-    return pd.read_csv(caminho)
+    """Lê o dataset rotulado e acrescenta a previsão da árvore (12 min)."""
+    dados = pd.read_csv(caminho)
+    dados["timestamp"] = pd.to_datetime(dados["timestamp"], errors="coerce", utc=True)
+    if mi.ARQ_ARVORE.exists() and {"fluxo_id", "z_robusto"} <= set(dados.columns):
+        arvore, colunas = mi.carregar_modelo()
+        dados = mi.adicionar_tendencia(dados)
+        dados["prevista_12min"] = mi.prever_12min(dados, arvore, colunas)
+    return dados
 
 
 if not ARQUIVO.exists():
@@ -376,6 +387,36 @@ st.plotly_chart(
 
 
 # ============================================================
+# PREVISÃO DA ÁRVORE (ESTADO ESPERADO EM 12 MIN)
+# ============================================================
+
+st.divider()
+st.header("Previsão da árvore de decisão")
+
+if "prevista_12min" in filtrado.columns:
+    st.caption(
+        "Classe atual = tabela de rotulagem da Tarefa 2. "
+        "Prevista em 12 min = árvore ajustada da Tarefa 4 (11 colunas "
+        "relativas ao baseline). No teste da Tarefa 5 ela ficou muito "
+        "próxima de repetir a classe atual, então o entregável é um "
+        "detector, não um preditor."
+    )
+    cruzado = (
+        pd.crosstab(
+            filtrado["classe"].rename("Classe atual"),
+            filtrado["prevista_12min"].rename("Prevista em 12 min"),
+        )
+        .reindex(index=CLASSES, columns=CLASSES, fill_value=0)
+    )
+    st.dataframe(cruzado, use_container_width=True)
+else:
+    st.warning(
+        "Árvore não encontrada em "
+        "documentos/notebooks/Arvore/saida_tarefa4/arvore_ajustada.joblib."
+    )
+
+
+# ============================================================
 # TABELA DE REGISTROS
 # ============================================================
 
@@ -396,6 +437,7 @@ colunas_tabela = [
         "n5_aumento80",
         "n5_risco",
         "classe",
+        "prevista_12min",
         "particao",
     ]
     if coluna in filtrado.columns
@@ -414,6 +456,7 @@ st.dataframe(
 
 st.caption(
     "ICMPMASTER — dashboard de análise histórica. "
-    "As classificações são as registradas no dataset original. "
-    "Esta versão não executa novas previsões."
+    "A coluna classe é a do dataset rotulado (Tarefa 2); "
+    "prevista_12min vem da árvore da Tarefa 4. "
+    "Sem monitoramento ao vivo."
 )
