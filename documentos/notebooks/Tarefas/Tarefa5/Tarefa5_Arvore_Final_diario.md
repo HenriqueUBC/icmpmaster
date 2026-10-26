@@ -137,12 +137,12 @@ Matriz agregada nos 6 fluxos (linhas = real, colunas = previsto):
 
 ## 6. Scrum e diário
 
-- [ ] Board atualizado — **Link do board:** `[GRUPO]`
+- [x] Board atualizado — [Trello](https://trello.com/b/75gwQNwl/estrutura-de-dados-ii)
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| Eduardo Quintino Filho | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Felipe Veiga da Silva | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Henrique de Aguiar Fernandes | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Niccolas Lupetti dos Santos | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Tharik Lima da Silva | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
+| Eduardo Quintino Filho | Contribuí para compreender os resultados finais e avaliar se o modelo atende ao objetivo de prever degradações futuras na rede. | Interpretar os resultados e identificar as limitações da capacidade preditiva do modelo. | Manter conclusões baseadas nas métricas obtidas e evitar afirmações que os resultados não sustentam. |
+| Felipe Veiga da Silva | Contribuí para acompanhar a avaliação temporal e a comparação do modelo com a estratégia de referência. | Analisar os erros por classe e compreender as limitações dos resultados em fluxos não vistos. | Manter os experimentos reproduzíveis e buscar melhorias no reconhecimento das classes RISCO e FALHA. |
+| Henrique de Aguiar Fernandes | Contribuí para organizar o fechamento da tarefa e consolidar as conclusões do experimento. | Conciliar os resultados técnicos com uma conclusão clara sobre o estado atual do projeto. | Manter as atividades organizadas e alinhar as conclusões às evidências obtidas. |
+| Niccolas Lupetti dos Santos | Contribuí para analisar as limitações do modelo na previsão de estados futuros e na generalização para novos fluxos. | Compreender o baixo recall da classe RISCO e a diferença de desempenho entre os testes. | Manter a análise por classe e investigar melhorias que permitam antecipar degradações com maior precisão. |
+| Tharik Lima da Silva | Contribuí para acompanhar a análise dos erros finais e avaliar a capacidade de generalização do preditor. | Investigar os casos de FALHA classificados como OK e compreender os riscos associados a esses erros. | Manter a investigação dos falsos negativos e reforçar a validação antes de qualquer utilização operacional.

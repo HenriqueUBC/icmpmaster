@@ -148,13 +148,19 @@ Um longo por medição:
    - *Evidência:* notebook, seções 10-A, 10-G e 10-H.
    - *Status:* Done
 
-**Link do board:**
+
 
 ## 5. Diário de bordo
 
+- [x] Board atualizado — [Trello](https://trello.com/b/75gwQNwl/estrutura-de-dados-ii)
+
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| | | | |
+| Eduardo Quintino Filho | Contribuí para compreender os requisitos iniciais do projeto e a finalidade da coleta de medições de rede. | Entender quais informações eram necessárias para representar adequadamente cada medição. | Manter os requisitos documentados e ajustar o contrato dos dados quando necessário. |
+| Felipe Veiga da Silva | Contribuí para organizar os dados brutos e compreender as informações utilizadas pelo preditor de qualidade da rede. | Lidar com medições que apresentam valores ausentes, tempos limite e diferentes condições de conexão. | Preservar os dados originais e manter a rastreabilidade das medições. |
+| Henrique de Aguiar Fernandes | Contribuí para organizar as atividades iniciais e alinhar o entendimento da equipe sobre os objetivos da tarefa. | Conciliar as atividades da equipe e garantir que todos compreendessem o escopo inicial. | Manter as tarefas organizadas e melhorar a comunicação entre os integrantes. |
+| Niccolas Lupetti dos Santos | Contribuí para compreender a estrutura das medições ICMP e as informações relevantes para analisar a qualidade da rede. | Identificar quais atributos seriam úteis sem antecipar etapas de processamento posteriores. | Manter a estrutura dos dados documentada e revisar os atributos conforme os requisitos. |
+| Tharik Lima da Silva | Contribuí para analisar a consistência das informações coletadas e a estrutura dos registros brutos. | Identificar possíveis inconsistências e compreender como representar medições sem resposta. | Manter verificações de consistência e melhorar a documentação dos dados. |
 
 ## 6. Evidências gerais
 

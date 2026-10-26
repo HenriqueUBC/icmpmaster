@@ -119,16 +119,15 @@ Treinada no **mesmo treino**, com os mesmos hiperparâmetros, acrescentando às 
 
 ## 5. Scrum e diário
 
-- [ ] Board atualizado — **Link do board:** `[GRUPO]`
+- [x] Board atualizado — [Trello](https://trello.com/b/75gwQNwl/estrutura-de-dados-ii)
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| Eduardo Quintino Filho | [GRUPO] | [GRUPO] | [GRUPO] |
-| Felipe Veiga da Silva | [GRUPO] | [GRUPO] | [GRUPO] |
-| Henrique de Aguiar Fernandes (SM) | [GRUPO] | [GRUPO] | [GRUPO] |
-| Niccolas Lupetti dos Santos | [GRUPO] | [GRUPO] | [GRUPO] |
-| Tharik Lima da Silva | [GRUPO] | [GRUPO] | [GRUPO] |
-
+| Eduardo Quintino Filho | Contribuí para compreender a aplicação de uma Árvore de Decisão na classificação da qualidade da rede. | Interpretar os resultados iniciais e distinguir um bom desempenho aparente de uma generalização real. | Manter os resultados registrados e avaliar o modelo com dados separados temporalmente. |
+| Felipe Veiga da Silva | Contribuí para acompanhar a avaliação inicial do modelo e a interpretação das métricas de classificação. | Compreender como o uso de atributos relacionados às regras dos rótulos poderia causar vazamento de informação. | Manter a avaliação reproduzível e verificar se as variáveis estão adequadas ao objetivo preditivo. |
+| Henrique de Aguiar Fernandes | Contribuí para organizar o acompanhamento da implementação inicial e a discussão dos resultados obtidos. | Identificar quais problemas precisavam ser corrigidos antes de avançar para a próxima etapa. | Manter o registro das decisões técnicas e acompanhar as correções priorizadas pela equipe. |
+| Niccolas Lupetti dos Santos | Contribuí para compreender a influência dos atributos na Árvore de Decisão e a interpretação de suas previsões. | Analisar a diferença entre aprender os rótulos atuais e antecipar estados futuros da rede. | Manter a análise das variáveis e priorizar a prevenção de vazamento de informação. |
+| Tharik Lima da Silva | Contribuí para acompanhar a avaliação dos resultados iniciais e identificar possíveis limitações do modelo. | Interpretar métricas elevadas sem concluir automaticamente que o modelo possui capacidade preditiva adequada. | Manter a comparação entre métricas e revisar os testes de generalização. |
 ---
 
 ## Rubrica — Tarefa 3 (0 a 4,0)

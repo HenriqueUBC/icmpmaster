@@ -87,15 +87,16 @@
 
 ## 5. Scrum e diário
 
-- [ ] Board atualizado — **Link do board:** `[GRUPO]`
+- [x] Board atualizado — [Trello](https://trello.com/b/75gwQNwl/estrutura-de-dados-ii)
+
 
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
 |---|---|---|---|
-| Eduardo Quintino Filho | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Felipe Veiga da Silva | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Henrique de Aguiar Fernandes | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Niccolas Lupetti dos Santos | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
-| Tharik Lima da Silva | `[GRUPO]` | `[GRUPO]` | `[GRUPO]` |
+| Eduardo Quintino Filho | Contribuí para compreender a mudança do objetivo para prever a classe da rede com antecedência de 12 minutos. | Entender como avaliar uma previsão futura sem utilizar informações que ainda não estariam disponíveis. | Manter o horizonte de previsão documentado e verificar se as variáveis respeitam a ordem temporal. |
+| Felipe Veiga da Silva | Contribuí para acompanhar o uso de atributos históricos e a avaliação da árvore ajustada. | Garantir que as janelas de análise utilizassem apenas medições anteriores ao instante previsto. | Manter a separação temporal e revisar as métricas de cada classe. |
+| Henrique de Aguiar Fernandes | Contribuí para organizar o acompanhamento das mudanças necessárias após os resultados da árvore inicial. | Alinhar as alterações do experimento com o objetivo de previsão futura definido no projeto. | Manter o histórico das decisões e verificar se as alterações atendem aos requisitos. |
+| Niccolas Lupetti dos Santos | Contribuí para compreender os novos atributos históricos, como variação recente, média anterior e inclinação das métricas. | Interpretar quais padrões passados poderiam ajudar a antecipar uma degradação futura. | Manter atributos calculados somente com dados passados e analisar sua contribuição para o modelo. |
+| Tharik Lima da Silva | Contribuí para acompanhar a análise de erros e a investigação de alarmes que não correspondiam a falhas futuras
 
 ---
 

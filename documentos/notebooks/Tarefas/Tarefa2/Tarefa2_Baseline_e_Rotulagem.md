@@ -171,12 +171,13 @@ Teste: N = 48.253, de 13/09/2026 19:26 a 20/09/2026 04:31 (UTC)**
 
 **Link do board:**
 
-
 | Integrante | O que fiz nesta tarefa | Dificuldades | O que pretendo manter/ajustar |
-| ---------- | ---------------------- | ------------ | ----------------------------- |
-|            |                        |              |                               |
-
-
+|---|---|---|---|
+| Eduardo Quintino Filho | Contribuí para compreender a definição das classes OK, RISCO e FALHA e sua relação com a qualidade da rede. | Definir critérios de classificação que representassem diferentes condições sem depender apenas do RTT absoluto. | Manter os critérios documentados e revisar sua coerência com o comportamento de cada fluxo. |
+| Felipe Veiga da Silva | Contribuí para compreender o processamento dos dados e a utilização de baselines para comparar as medições. | Lidar com diferenças entre fluxos e evitar que informações futuras influenciassem o cálculo do baseline. | Preservar a separação temporal dos dados e revisar o tratamento de valores ausentes. |
+| Henrique de Aguiar Fernandes | Contribuí para acompanhar a organização das atividades relacionadas à construção do baseline e à rotulagem. | Garantir que as regras e as responsabilidades da etapa estivessem alinhadas entre os integrantes. | Manter as etapas organizadas e registrar decisões que afetem as tarefas seguintes. |
+| Niccolas Lupetti dos Santos | Contribuí para compreender as características relativas ao baseline, como variação de RTT, jitter e perda de pacotes. | Interpretar métricas relativas sem confundir variações normais com degradações reais. | Manter a análise baseada no comportamento de cada fluxo e revisar os critérios de rotulagem. |
+| Tharik Lima da Silva | Contribuí para analisar a consistência das classes atribuídas e compreender os efeitos das regras de rotulagem. | Verificar casos limítrofes e situações em que diferentes regras poderiam produzir classificações distintas. | Manter a validação dos rótulos e documentar possíveis limitações das regras utilizadas. |
 ---
 
 
