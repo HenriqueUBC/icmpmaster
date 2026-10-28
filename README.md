@@ -41,5 +41,4 @@ pytest -q tests             # testes dos cenários OK, RISCO e FALHA
 - A árvore é um **detector** do estado atual: no teste (Tarefa 5) ela ficou praticamente igual a
   "repetir a classe atual" (F1 macro 0,6772 contra 0,6695).
 - Fluxo sem ficha de baseline (menos de 1.500 RTT válidos no Período A) não é classificado.
-- Limitação conhecida: a árvore não prevê FALHA a 12 min para perda ou timeout sustentado.
 - Ainda não há monitoramento ao vivo.
