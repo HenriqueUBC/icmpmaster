@@ -1,0 +1,26 @@
+{
+  "origem": "Tarefa 4 — árvore oficial V1, sem retreinamento",
+  "features": [
+    "z_robusto",
+    "aumento_pct",
+    "jitter_relativo",
+    "perda_pct",
+    "timeout_atual",
+    "n5_timeout",
+    "n5_aumento80",
+    "n5_risco",
+    "z_delta1",
+    "z_media3_ant",
+    "z_inclin5"
+  ],
+  "horizonte_rodadas": 3,
+  "horizonte_min_estimado": 12,
+  "baseline": "baseline.csv; fluxos RIPE Atlas, não válido automaticamente para ping local",
+  "sentinela": -999,
+  "classes": [
+    "OK",
+    "RISCO",
+    "FALHA"
+  ],
+  "status_real": "exclusivamente avaliação, nunca feature"
+}

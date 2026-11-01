@@ -1,1 +1,8 @@
+__pycache__/
+*.py[cod]
 .venv/
+.pytest_cache/
+.ipynb_checkpoints/
+data/ping_local/
+# RIPE Atlas live data may be archived separately; do not commit growing runtime CSVs
+# data/monitoramento/

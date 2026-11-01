@@ -41,4 +41,18 @@ pytest -q tests             # testes dos cenários OK, RISCO e FALHA
 - A árvore é um **detector** do estado atual: no teste (Tarefa 5) ela ficou praticamente igual a
   "repetir a classe atual" (F1 macro 0,6772 contra 0,6695).
 - Fluxo sem ficha de baseline (menos de 1.500 RTT válidos no Período A) não é classificado.
-- Ainda não há monitoramento ao vivo.
+- Há coleta periódica RIPE Atlas e um módulo adicional de ping direto; nenhum deles garante resultados instantâneos.
+
+## Complementação — monitoramento e contrato (2026-11)
+
+- **RIPE Atlas:** `monitoramento_icmp.py` (coleta periódica existente), painel `pages/2_Monitoramento_automatico.py`.
+- **Ping direto:** `ping_local.py`, separado do RIPE Atlas. Execute com `py ping_local.py --ips 1.1.1.1 8.8.8.8 --intervalo 60` ou `.\.venv\Scripts\python.exe ping_local.py ...` no PowerShell (com prefixo `.\` antes de `.venv`).
+- **Simulação artificial:** `py simulador_icmp.py --cenario FALHA` (ou `OK` / `RISCO`). Não realiza tráfego real.
+- **Dados sintéticos:** `py experimento_sintetico.py` cria `resultados_sinteticos/` e relatório exclusivo de dados sintéticos.
+- **Empacotamento:** `py empacotar_modelo.py` gera e verifica `pacote_modelo/modelo.joblib`, `metadados.json`, `baseline.csv`.
+- **Testes:** `py -m unittest discover -s tests -v`.
+- **Interface:** `py -m streamlit run app.py` e páginas de monitoramento no menu lateral.
+
+Consulte `documentos/IMPLEMENTACAO_COMPLEMENTAR.md` para limitações, campos do contrato e separação entre predição, observação e simulação.
+
+**Nota:** a seção histórica acima que diz que ainda não há monitoramento ao vivo descreve o estado anterior do projeto. A coleta periódica RIPE Atlas foi adicionada posteriormente. A coleta não é instantânea; depende da API e das sondas. O ping direto usa uma referência própria em aquecimento.

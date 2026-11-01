@@ -15,7 +15,6 @@ from pathlib import Path
 import joblib
 import numpy as np
 import pandas as pd
-import streamlit as st
 
 import modelo_icmp as mi
 
@@ -25,7 +24,6 @@ ARQUIVO_METADATA = RAIZ / "modelos" / "alerta_antecipado_meta.json"
 CLASSES_ATUAIS_ELEGIVEIS = ("OK", "RISCO")
 
 
-@st.cache_resource(show_spinner=False)
 def carregar_alerta_auxiliar(caminho: str, modificado_em_ns: int) -> dict:
     """Carrega artefato local confiável; mtime força recarga se atualizado."""
     del modificado_em_ns
@@ -117,6 +115,7 @@ def prever_alerta_auxiliar(dados: pd.DataFrame, pacote: dict) -> pd.DataFrame:
 
 def renderizar_painel_alerta(dados: pd.DataFrame) -> None:
     """Painel separado do dashboard oficial, sem sobrescrever sua previsão."""
+    import streamlit as st
     st.divider()
     st.header("Alerta antecipado de FALHA nova")
 

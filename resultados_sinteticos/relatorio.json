@@ -1,0 +1,15 @@
+{
+  "origem": "SINTETICA: regras artificiais; NÃO validação em rede real",
+  "seed": 42,
+  "treino": 1020,
+  "teste": 636,
+  "arvore_sintetica": {
+    "acuracia": 0.5927672955974843,
+    "f1_macro": 0.46985578324190985
+  },
+  "persistencia": {
+    "acuracia": 0.7358490566037735,
+    "f1_macro": 0.6762452107279694
+  },
+  "comparacao_ripe_atlas": "Comparar apenas metodologia; métricas não são diretamente equivalentes aos dados RIPE Atlas."
+}
