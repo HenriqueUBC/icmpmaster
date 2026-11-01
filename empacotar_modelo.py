@@ -20,7 +20,7 @@ def empacotar():
     metadados = {"origem": "Tarefa 4 — árvore oficial V1, sem retreinamento",
         "features": features, "horizonte_rodadas": cfg.get("horizonte_rodadas", 3),
         "horizonte_min_estimado": cfg.get("horizonte_min", 12),
-        "baseline": "baseline.csv; fluxos RIPE Atlas, não válido automaticamente para ping local",
+        "baseline": "baseline.csv; fluxos RIPE Atlas, válido somente para fluxos RIPE Atlas cadastrados",
         "sentinela": mi.SENTINELA, "classes": list(mi.CLASSES),
         "status_real": "exclusivamente avaliação, nunca feature"}
     (DESTINO / "metadados.json").write_text(json.dumps(metadados, indent=2, ensure_ascii=False), encoding="utf-8")

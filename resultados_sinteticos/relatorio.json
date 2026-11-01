@@ -3,6 +3,7 @@
   "seed": 42,
   "treino": 1020,
   "teste": 636,
+  "modelo_avaliado": "árvore treinada exclusivamente em dados sintéticos; NÃO é a árvore V1",
   "arvore_sintetica": {
     "acuracia": 0.5927672955974843,
     "f1_macro": 0.46985578324190985

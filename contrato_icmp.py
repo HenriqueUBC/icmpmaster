@@ -7,7 +7,7 @@ import pandas as pd
 
 CAMPOS = ("timestamp", "ip", "latencia_ms", "perda_pacotes_pct", "jitter_ms", "status_real")
 
-def normalizar_medicao(registro: Mapping, origem: str = "ping_local") -> dict:
+def normalizar_medicao(registro: Mapping, origem: str = "sintetico") -> dict:
     """Adapta o contrato da professora; status_real é mantido SOMENTE para avaliação."""
     ausentes = set(CAMPOS[:5]) - set(registro)
     if ausentes:
@@ -46,6 +46,8 @@ def normalizar_medicao(registro: Mapping, origem: str = "ping_local") -> dict:
             raise ValueError("status_real deve ser OK, RISCO, FALHA ou vazio")
     else:
         status = None
+    if origem not in {"sintetico", "ripe_atlas"}:
+        raise ValueError("origem deve ser sintético ou RIPE Atlas")
     return {"timestamp": timestamp.isoformat(), "ip": ip,
             "fluxo_id": f"{origem}|{ip}", "rtt_medio_ms": latencia,
             "perda_pct": perda, "jitter_ms": jitter,
@@ -53,5 +55,5 @@ def normalizar_medicao(registro: Mapping, origem: str = "ping_local") -> dict:
             "origem": origem}
 
 
-def converter_dataframe(dados: pd.DataFrame, origem: str = "ping_local") -> pd.DataFrame:
+def converter_dataframe(dados: pd.DataFrame, origem: str = "sintetico") -> pd.DataFrame:
     return pd.DataFrame([normalizar_medicao(linha, origem) for linha in dados.to_dict("records")])

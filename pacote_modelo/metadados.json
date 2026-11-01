@@ -15,7 +15,7 @@
   ],
   "horizonte_rodadas": 3,
   "horizonte_min_estimado": 12,
-  "baseline": "baseline.csv; fluxos RIPE Atlas, não válido automaticamente para ping local",
+  "baseline": "baseline.csv; fluxos RIPE Atlas, válido somente para fluxos RIPE Atlas cadastrados",
   "sentinela": -999,
   "classes": [
     "OK",

@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, f1_score, classification_report
-from baseline_local import construir_baseline
+from baseline_sintetico import construir_baseline_sintetico
 from preditor_icmp import calcular_features
 import modelo_icmp as mi
 
@@ -44,7 +44,7 @@ def executar(seed=42):
     from contrato_icmp import converter_dataframe
     bruto = gerar(seed=seed)
     dados = converter_dataframe(bruto, origem="sintetico")
-    base = construir_baseline(dados.groupby("fluxo_id", group_keys=False).head(30))
+    base = construir_baseline_sintetico(dados.groupby("fluxo_id", group_keys=False).head(30))
     features = mi.adicionar_tendencia(calcular_features(dados, base))
     dados["timestamp"] = pd.to_datetime(dados["timestamp"], utc=True)
     d = dados.drop(columns=["perda_pct", "timeout_atual"]).merge(features, on=["fluxo_id", "timestamp"], how="inner")
@@ -65,6 +65,7 @@ def executar(seed=42):
     y = teste["alvo_futuro"].to_numpy()
     rel = {"origem": "SINTETICA: regras artificiais; NÃO validação em rede real",
            "seed": seed, "treino": len(treino), "teste": len(teste),
+           "modelo_avaliado": "árvore treinada exclusivamente em dados sintéticos; NÃO é a árvore V1",
            "arvore_sintetica": {"acuracia": float(accuracy_score(y, pred)),
                                   "f1_macro": float(f1_score(y, pred, average="macro", zero_division=0))},
            "persistencia": {"acuracia": float(accuracy_score(y, persistencia)),
