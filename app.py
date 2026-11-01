@@ -6,6 +6,7 @@ import plotly.express as px
 import streamlit as st
 
 import modelo_icmp as mi
+from alerta_icmp import renderizar_painel_alerta
 
 
 # ============================================================
@@ -460,3 +461,9 @@ st.caption(
     "prevista_12min vem da árvore da Tarefa 4. "
     "Sem monitoramento ao vivo."
 )
+
+# ============================================================
+# ALERTA ANTECIPADO DE FALHAS — EXPERIMENTAL
+# ============================================================
+
+renderizar_painel_alerta(df)

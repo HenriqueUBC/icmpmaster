@@ -1,0 +1,52 @@
+
+{
+  "nome": "Alerta auxiliar de falha nova em aproximadamente 12 minutos",
+  "status": "EXPERIMENTAL - integrado ao dashboard, não aprovado como preditor operacional",
+  "origem": "Experimento do ICMPMASTER, arquivo enviado pelo usuário em 2026-11-01",
+  "escopo": "Somente estado atual OK ou RISCO, futura classe FALHA após 3 rodadas",
+  "horizonte_minutos_aproximado": 12,
+  "features": [
+    "z_robusto",
+    "aumento_pct",
+    "jitter_relativo",
+    "perda_pct",
+    "timeout_atual",
+    "n5_timeout",
+    "n5_aumento80",
+    "n5_risco",
+    "z_delta1",
+    "z_media3_ant",
+    "z_inclin5"
+  ],
+  "limiar": 0.25,
+  "hiperparametros": {
+    "max_depth": 8,
+    "min_samples_leaf": 30,
+    "class_weight": null
+  },
+  "selecao": [
+    "particao==treino para ajuste",
+    "particao==validacao para seleção de parâmetros e limiar"
+  ],
+  "modelo_oficial": "arvore_ajustada.joblib continua classificador principal",
+  "metricas_validacao_auxiliar": {
+    "eventos_falha_nova": 1496,
+    "recall": 0.23596256684491979,
+    "precisao": 0.42478941034897716,
+    "tp": 353,
+    "fp": 478
+  },
+  "metricas_validacao_original": {
+    "recall": 0.1557486631016043,
+    "precisao": 0.4905263157894737,
+    "tp": 233,
+    "fp": 242
+  },
+  "advertencias": [
+    "Métricas exploratórias e potencialmente otimistas porque a validação também selecionou o modelo",
+    "Conjunto de teste da Tarefa 5 já foi analisado; exigem-se novos dados temporais independentes para afirmar melhoria",
+    "Não é sistema de monitoramento ao vivo",
+    "Não constitui autorização para alterar relatório acadêmico ou substituir modelo oficial"
+  ],
+  "compatibilidade": "Artefato original treinado com scikit-learn 1.9.1 conforme metadados da serialização; usar versão compatível para carregar o arquivo"
+}
