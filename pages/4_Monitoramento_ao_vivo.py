@@ -85,12 +85,17 @@ st.caption(
 
 # ------------------------------------------------------------------- coleta
 def coletar():
-    with ThreadPoolExecutor(max_workers=len(hosts)) as ex:
-        medicoes = list(ex.map(av.medir_ping, hosts))
+    try:
+        with ThreadPoolExecutor(max_workers=len(hosts)) as ex:
+            medicoes = list(ex.map(av.medir_ping, hosts))
+    except av.PingIndisponivel as erro:
+        st.error(f"{erro} Desligue 'Monitorar ao vivo' e verifique o ping no terminal.")
+        return
     for h, med in zip(hosts, medicoes):
         est = S.estado[h]
         if est["fluxo"] is None:
             est["aquec"].append(med)
+            est["sem_resp"] = est.get("sem_resp", 0) + 1 if math.isnan(med["rtt_medio_ms"]) else 0
             ok = [m for m in est["aquec"] if not math.isnan(m["rtt_medio_ms"])]
             if len(ok) >= n_aquec:
                 b = av.calcular_baseline([m["rtt_medio_ms"] for m in ok],
@@ -135,6 +140,10 @@ def mostrar():
         if est["fluxo"] is None:
             n = sum(not math.isnan(m["rtt_medio_ms"]) for m in est["aquec"])
             st.progress(min(n / n_aquec, 1.0), text=f"Montando baseline: {n}/{n_aquec} medições")
+            if est.get("sem_resp", 0) >= 3:
+                st.warning(f"{h} não respondeu aos últimos {est['sem_resp']} pings: confira o IP "
+                           "(teste `ping` no terminal) ou se firewall/VPN/rede bloqueia ICMP. "
+                           "O baseline só avança com respostas.")
             if not S.get("rodando"):
                 st.info("Ative **Monitorar ao vivo** na barra lateral.")
             continue

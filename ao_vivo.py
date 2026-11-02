@@ -130,8 +130,10 @@ def medir_ping(host: str, n: int = 3, timeout_s: int = 2) -> dict:
     try:
         p = subprocess.run(cmd, capture_output=True, text=True, timeout=n * timeout_s + 5)
         saida = p.stdout + p.stderr
-    except (subprocess.TimeoutExpired, FileNotFoundError):
-        saida = ""
+    except subprocess.TimeoutExpired:
+        saida = ""                      # sem resposta = 100 % de perda
+    except (FileNotFoundError, PermissionError) as erro:
+        raise PingIndisponivel("Comando 'ping' não encontrado ou sem permissão neste computador.") from erro
     m = parsear_ping(saida, n)
     m.update({"timestamp": datetime.now(timezone.utc), "host": host,
               "origem": "real", "cenario": ""})
@@ -139,10 +141,20 @@ def medir_ping(host: str, n: int = 3, timeout_s: int = 2) -> dict:
 
 
 # ---------------------------------------------------------------- simulação
+def _delta_risco(b: Baseline):
+    """Acréscimo de RTT (ms) que cai na zona de RISCO da Tarefa 2, ou None."""
+    den, med = b.denominador(), b.mediana
+    lo, hi = 2.05 * den, min(3.4 * den, 0.78 * med)
+    if lo <= hi:
+        return min(max(2.8 * den, lo), hi)
+    lo, hi = 0.32 * med, min(0.78 * med, 3.4 * den)
+    if lo <= hi:
+        return min(max(0.55 * med, lo), hi)
+    return None
+
+
 def risco_simulavel(b: Baseline) -> bool:
-    """RISCO exige 2 <= z e aumento <= 80 %: só cabe se 2*escala <= 0,75*mediana.
-    Falha em baselines de resolução grossa (ex.: ping do Windows, que arredonda p/ 1 ms)."""
-    return 2 * b.denominador() <= 0.75 * b.mediana
+    return _delta_risco(b) is not None
 
 
 def simular_medicao(base: dict, cenario: str, b: Baseline) -> dict:

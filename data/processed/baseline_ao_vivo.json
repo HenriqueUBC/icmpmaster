@@ -5,5 +5,12 @@
     "iqr": 1.6666666666666665,
     "jitter_tipico": 1.629788019610412,
     "n_rtt_validos": 30
+  },
+  "192.168.15.78": {
+    "mediana": 0.5,
+    "mad": 0.0,
+    "iqr": 0.0,
+    "jitter_tipico": 0.0,
+    "n_rtt_validos": 10
   }
 }
