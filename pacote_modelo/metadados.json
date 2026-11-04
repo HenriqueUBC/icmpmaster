@@ -1,6 +1,66 @@
 {
+  "nome_modelo": "ICMPMASTER — Árvore de Decisão V1",
+  "versao_modelo": "V1 — Tarefa 4",
   "origem": "Tarefa 4 — árvore oficial V1, sem retreinamento",
-  "features": [
+  "familia": "DecisionTreeClassifier (scikit-learn)",
+  "modelo_arquivo": "modelo.joblib",
+  "formato_modelo": {
+    "chaves_esperadas": [
+      "modelo",
+      "features",
+      "familia",
+      "params"
+    ],
+    "observacao": "O arquivo binário original enviado foi preservado; este JSON não altera nem reserializa o modelo."
+  },
+  "ambiente": {
+    "python": "não confirmado a partir dos arquivos fornecidos",
+    "scikit_learn_serializacao": "1.9.1 (informação da inspeção anterior; confirmar no ambiente de treinamento)",
+    "numpy": "não confirmado",
+    "pandas": "não confirmado",
+    "joblib": "não confirmado",
+    "recomendacao": "Utilizar versões compatíveis com o ambiente de treinamento; validar carregamento e predição antes da entrega."
+  },
+  "fonte_dados": "RIPE Atlas — medições ICMP",
+  "configuracao": {
+    "criterio": "gini",
+    "max_depth": 8,
+    "min_samples_leaf": 1,
+    "ccp_alpha": 0.0005,
+    "seed": 42
+  },
+  "entradas_medicao": [
+    {
+      "nome": "timestamp",
+      "tipo": "datetime ISO-8601 com fuso UTC",
+      "obrigatorio": true
+    },
+    {
+      "nome": "fluxo_id",
+      "tipo": "string probe_id|dst_addr",
+      "obrigatorio": true,
+      "alternativa": "probe_id e dst_addr"
+    },
+    {
+      "nome": "rtt_medio_ms",
+      "tipo": "float >= 0 ou nulo em timeout",
+      "obrigatorio": true
+    },
+    {
+      "nome": "perda_pct",
+      "tipo": "float entre 0 e 100",
+      "obrigatorio": true
+    },
+    {
+      "nome": "jitter_ms",
+      "tipo": "float >= 0 ou nulo em timeout",
+      "obrigatorio": true
+    }
+  ],
+  "campos_avaliacao": {
+    "status_real": "Rótulo real, usado exclusivamente para avaliação; não é feature de entrada."
+  },
+  "features_ordem_exata": [
     "z_robusto",
     "aumento_pct",
     "jitter_relativo",
@@ -13,14 +73,105 @@
     "z_media3_ant",
     "z_inclin5"
   ],
-  "horizonte_rodadas": 3,
-  "horizonte_min_estimado": 12,
-  "baseline": "baseline.csv; fluxos RIPE Atlas, válido somente para fluxos RIPE Atlas cadastrados",
-  "sentinela": -999,
-  "classes": [
-    "OK",
-    "RISCO",
-    "FALHA"
+  "features_descricao": {
+    "z_robusto": "Se RTT ausente: nulo. Caso contrário (RTT-mediana)/denominador; denominador=1.4826*MAD se MAD>0, senão max(iqr/1.349,1.0); diferença zero produz 0.",
+    "aumento_pct": "100*(RTT-mediana)/mediana; nulo se RTT ausente. O código pressupõe mediana positiva; não há proteção explícita para mediana igual a zero.",
+    "jitter_relativo": "jitter_ms/jitter_tipico se jitter_tipico>0; se jitter_tipico=0, resultado 1 quando jitter_ms=0 e 3 caso contrário; nulo se algum valor ausente.",
+    "perda_pct": "Percentual de pacotes perdidos, calculado na coleta como 100*(enviados-recebidos)/enviados para enviados>0.",
+    "timeout_atual": "1 se RTT ausente ou perda_pct=100; senão 0.",
+    "n5_timeout": "Soma móvel de timeout_atual nas últimas até 5 medições do mesmo fluxo, incluindo a atual.",
+    "n5_aumento80": "Soma móvel das últimas até 5 medições com aumento_pct>80, incluindo a atual.",
+    "n5_risco": "Soma móvel das últimas até 5 medições em que 2<=z_robusto<3.5 OU 30<=aumento_pct<=80 OU jitter_relativo>=3.",
+    "z_delta1": "z_robusto atual menos z_robusto da medição imediatamente anterior do mesmo fluxo.",
+    "z_media3_ant": "Média dos valores z_robusto das 3 medições anteriores; requer pelo menos 2 valores não nulos.",
+    "z_inclin5": "(-2*z[t-4]-z[t-3]+z[t-1]+2*z[t])/10; exige quatro observações anteriores e valores válidos."
+  },
+  "pipeline": [
+    "Coletar e normalizar resultados RIPE Atlas",
+    "Identificar fluxo por probe_id|dst_addr",
+    "Associar somente baseline status=ok do mesmo fluxo",
+    "Ordenar cronologicamente as medições do fluxo",
+    "Calcular 8 features base e janelas móveis de 5",
+    "Calcular 3 features temporais sem olhar medições futuras",
+    "Reordenar as 11 features conforme treino",
+    "Converter valores não numéricos/infinitos em ausentes e substituir ausentes por -999",
+    "Executar predict da árvore V1"
   ],
-  "status_real": "exclusivamente avaliação, nunca feature"
+  "tratamento_ausentes_e_divisao_zero": {
+    "sentinela_modelo": -999,
+    "antes_da_predicao": "pd.to_numeric(errors=coerce), substituir infinito por NaN, preencher NaN com -999",
+    "RTT_ausente": "z_robusto e aumento_pct ausentes; timeout_atual=1",
+    "MAD_zero": "fallback max(iqr/1.349,1.0)",
+    "jitter_tipico_zero": "jitter_relativo=1 se jitter=0, caso contrário 3",
+    "enviados_zero": "perda_pct indefinida na normalização; entrada de inferência exige perda_pct válida",
+    "mediana_zero": "não há tratamento explícito no código; requer validação do baseline antes do uso"
+  },
+  "saida": {
+    "campo": "previsao_12min",
+    "classes_rotulos": [
+      "OK",
+      "RISCO",
+      "FALHA"
+    ],
+    "ordem_interna_modelo": "verificar atributo classes_ do estimador serializado; não presumir ordem interna",
+    "interpretacao": "Classe prevista para três rodadas adiante, não garantia de falha"
+  },
+  "horizonte": {
+    "rodadas": 3,
+    "minutos_estimados": 12,
+    "hipotese": "cadência de aproximadamente 4 minutos por rodada"
+  },
+  "historico": {
+    "necessario": "Medições anteriores do mesmo fluxo, com timestamp estritamente anterior e sem duplicação",
+    "janelas": "até 5 medições para contagens móveis; 4 anteriores para inclinação de 5 pontos",
+    "observacao": "Histórico menor pode produzir features ausentes, convertidas para -999 antes da previsão"
+  },
+  "baseline": {
+    "arquivo": "baseline.csv",
+    "origem": "Período A da configuração de coleta",
+    "inicio_utc": "2026-09-06T04:32:00Z",
+    "fim_exclusivo_utc": "2026-09-13T04:32:00Z",
+    "regra": "Apenas fluxo_id único com status=ok; fluxos novos ou insuficientes devem ter baseline calculado e validado antes da inferência",
+    "campos": [
+      "fluxo_id",
+      "n_medicoes_A",
+      "n_rtt_validos_A",
+      "mediana",
+      "MAD",
+      "iqr",
+      "jitter_tipico",
+      "perda_tipica",
+      "prop_resposta",
+      "status"
+    ]
+  },
+  "avaliacao_registrada_config_modelo": {
+    "f1_macro_validacao": 0.7143,
+    "recall_falha_validacao": 0.6825234789710086,
+    "recall_risco_validacao": 0.3421793325291516
+  },
+  "exemplo_entrada_saida": {
+    "situacao": "exemplo ilustrativo de formato, não executado; saída real depende do histórico e do modelo",
+    "entrada": {
+      "timestamp": "2026-09-13T04:36:00Z",
+      "fluxo_id": "1000755|63.222.187.5",
+      "rtt_medio_ms": 255.0,
+      "perda_pct": 0.0,
+      "jitter_ms": 0.1
+    },
+    "saida": {
+      "fluxo_id": "1000755|63.222.187.5",
+      "timestamp": "2026-09-13T04:36:00+00:00",
+      "previsao_12min": null,
+      "features": "Calculadas a partir do histórico real; não inferidas neste exemplo"
+    },
+    "pendencia": "Substituir por um par entrada/saída real executado no projeto para cumprir integralmente a exigência da professora."
+  },
+  "fontes_codigo": [
+    "preditor_icmp.py",
+    "modelo_icmp.py",
+    "config/coleta.py",
+    "config/coleta_config.json",
+    "documentos/notebooks/Arvore/saida_tarefa4/config_modelo.json"
+  ]
 }

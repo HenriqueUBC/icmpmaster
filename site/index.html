@@ -1,67 +1,437 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <meta name="description" content="ICMPMASTER: monitoramento de qualidade de redes e previsão de condições de conectividade com aprendizado de máquina.">
-  <title>ICMPMASTER — Inteligência para redes mais confiáveis</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="#07111f" name="theme-color" />
+    <meta
+        content="ICMPMASTER: monitoramento de qualidade de redes e previsão de condições de conectividade com aprendizado de máquina."
+        name="description" />
+    <title>ICMPMASTER — Inteligência para redes mais confiáveis</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script defer="" src="js/script.js"></script>
 </head>
+
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <header class="header" id="topo">
-    <div class="container nav-wrap">
-      <a class="brand" href="#inicio" aria-label="ICMPMASTER, início"><span class="brand-mark" aria-hidden="true">⌁</span> ICMP<span>MASTER</span></a>
-      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav class="nav" id="menu" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a><a href="#processo">Como funciona</a><a href="#inteligencia">IA</a><a href="#recursos">Recursos</a><a href="#tecnologias">Tecnologias</a>
-        <a class="nav-cta" href="https://github.com/HenriqueUBC/icmpmaster" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-      </nav>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="header" id="topo">
+        <div class="container nav-wrap">
+            <a aria-label="ICMPMASTER, início" class="brand" href="#inicio"><img alt="" class="brand-logo" height="40"
+                    src="img/logo-icmpmaster.png" width="40" /> ICMP<span>MASTER</span></a>
+            <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle"
+                type="button"><span></span><span></span><span></span></button>
+            <nav aria-label="Navegação principal" class="nav" id="menu">
+                <a href="#sobre">Sobre</a><a href="#processo">Como funciona</a><a href="#inteligencia">IA</a><a
+                    href="#recursos">Recursos</a><a href="#tecnologias">Tecnologias</a>
+                <a href="#resultados">Resultados</a><a href="#demonstracao">Demonstração</a><a href="#video">Vídeo</a><a
+                    href="#equipe">Equipe</a><a class="nav-cta" href="https://github.com/HenriqueUBC/icmpmaster"
+                    rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="#dados-avaliacao">Dados</a>
+            </nav>
+        </div>
+    </header>
+    <main id="conteudo">
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="hero" id="inicio">
+            <div class="hero-grid container">
+                <div class="hero-copy reveal">
+                    <span class="eyebrow"><span class="pulse-dot"></span> PROJETO INTERDISCIPLINAR · 2026</span>
+                    <h1>Redes mais confiáveis começam com <em>previsão.</em></h1>
+                    <p>Conheça o ICMPMASTER: uma solução acadêmica que combina medições de conectividade, análise de
+                        dados e Machine Learning para identificar padrões e estimar o estado futuro da rede.</p>
+                    <div class="hero-actions"><a class="btn btn-primary" href="#sobre">Explorar o projeto <span
+                                aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#inteligencia">Entenda
+                            a previsão <span aria-hidden="true">→</span></a></div>
+                    <div class="hero-meta"><span>● Python + Streamlit</span><span>● Árvore de Decisão</span><span>● ICMP
+                            / RIPE Atlas</span></div>
+                </div>
+                <div aria-label="Ilustração conceitual de uma rede monitorada" class="network-art reveal">
+                    <div class="art-top"><span class="art-label">NETWORK / OVERVIEW</span><span class="art-live"><i></i>
+                            DEMONSTRAÇÃO VISUAL</span></div>
+                    <svg aria-label="Nós conectados representando uma rede" class="network-svg" role="img"
+                        viewbox="0 0 460 315">
+                        <defs>
+                            <lineargradient id="linegrad">
+                                <stop stop-color="#00d5ff"></stop>
+                                <stop offset="1" stop-color="#796dff"></stop>
+                            </lineargradient>
+                        </defs>
+                        <g opacity=".55" stroke="url(#linegrad)" stroke-width="1.5">
+                            <path
+                                d="M230 151L93 80M230 151L368 79M230 151L92 248M230 151L367 250M93 80L368 79M92 248L367 250">
+                            </path>
+                        </g>
+                        <g fill="#0b2439" stroke="#3ee4ff" stroke-width="2">
+                            <circle cx="93" cy="80" r="21"></circle>
+                            <circle cx="368" cy="79" r="21"></circle>
+                            <circle cx="92" cy="248" r="21"></circle>
+                            <circle cx="367" cy="250" r="21"></circle>
+                        </g>
+                        <circle cx="230" cy="151" fill="#00d5ff" opacity=".08" r="52"></circle>
+                        <circle cx="230" cy="151" fill="#0b2439" r="36" stroke="#3ee4ff" stroke-width="3"></circle>
+                        <circle cx="230" cy="151" fill="#3ee4ff" r="10"></circle>
+                        <g fill="#3ee4ff">
+                            <circle cx="93" cy="80" r="6"></circle>
+                            <circle cx="368" cy="79" r="6"></circle>
+                            <circle cx="92" cy="248" r="6"></circle>
+                            <circle cx="367" cy="250" r="6"></circle>
+                        </g>
+                        <g fill="#9fb6cf" font-family="system-ui" font-size="12"><text x="57" y="43">NODE 01</text><text
+                                x="331" y="43">NODE 02</text><text x="57" y="291">NODE 03</text><text x="331"
+                                y="291">NODE 04</text><text x="197" y="211">PREDITOR</text></g>
+                    </svg>
+                    <div class="art-bottom"><span><b>OK</b> / RISCO / FALHA</span><span>Horizonte ~12 min</span></div>
+                </div>
+            </div>
+            <div aria-hidden="true" class="hero-glow"></div>
+        </section>
+        <section class="section section-about" id="sobre">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">01 / O PROJETO</span>
+                    <h2>Do monitoramento à <span class="accent">antecipação.</span></h2>
+                    <p>O ICMPMASTER é um projeto acadêmico que analisa medições ICMP reais do RIPE Atlas para estimar a
+                        condição futura da conectividade. Seu objetivo é identificar antecipadamente sinais de
+                        degradação e apoiar o monitoramento de redes.</p>
+                </div>
+                <div class="cards three">
+                    <article class="card reveal"><span class="card-icon">◉</span>
+                        <h3>Observar</h3>
+                        <p>Acompanhar latência, jitter e perda de pacotes em medições de rede.</p>
+                    </article>
+                    <article class="card reveal"><span class="card-icon">⌁</span>
+                        <h3>Interpretar</h3>
+                        <p>Extrair características das medições e identificar comportamentos fora do padrão.</p>
+                    </article>
+                    <article class="card reveal"><span class="card-icon">↗</span>
+                        <h3>Estimar</h3>
+                        <p>Usar uma Árvore de Decisão para estimar a condição futura da conectividade.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section section-dark" id="processo">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">02 / METODOLOGIA</span>
+                    <h2>Como o sistema <span class="accent">funciona?</span></h2>
+                    <p>Um fluxo de processamento que conecta medições, análise e visualização.</p>
+                </div>
+                <div class="steps">
+                    <article class="step reveal"><span class="step-no">01</span>
+                        <h3>Coleta</h3>
+                        <p>Medições ICMP provenientes do RIPE Atlas, utilizadas na construção da base de análise.</p>
+                    </article>
+                    <article class="step reveal"><span class="step-no">02</span>
+                        <h3>Tratamento</h3>
+                        <p>Organização dos dados e cálculo de características relevantes para o modelo.</p>
+                    </article>
+                    <article class="step reveal"><span class="step-no">03</span>
+                        <h3>Predição</h3>
+                        <p>Aplicação do modelo treinado para estimar OK, RISCO ou FALHA.</p>
+                    </article>
+                    <article class="step reveal"><span class="step-no">04</span>
+                        <h3>Visualização</h3>
+                        <p>Apresentação das informações no dashboard e verificação posterior das previsões.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="pipeline">
+                <div class="step">
+                    <h3>RIPE Atlas</h3>
+                    <p>Origem dos dados</p>
+                </div>
+
+    <div class="step">
+        <h3>Pré-processamento</h3>
+        <p>Preparação das medições</p>
     </div>
-  </header>
-  <main id="conteudo">
-    <section class="hero" id="inicio">
-      <div class="hero-grid container">
-        <div class="hero-copy reveal">
-          <span class="eyebrow"><span class="pulse-dot"></span> PROJETO INTERDISCIPLINAR · 2026</span>
-          <h1>Redes mais confiáveis começam com <em>previsão.</em></h1>
-          <p>Conheça o ICMPMASTER: uma solução acadêmica que combina medições de conectividade, análise de dados e Machine Learning para identificar padrões e estimar o estado futuro da rede.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#sobre">Explorar o projeto <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#inteligencia">Entenda a previsão <span aria-hidden="true">→</span></a></div>
-          <div class="hero-meta"><span>● Python + Streamlit</span><span>● Árvore de Decisão</span><span>● ICMP / RIPE Atlas</span></div>
+
+    <div class="step">
+        <h3>Árvore de Decisão</h3>
+        <p>Treinamento e previsão</p>
+    </div>
+</div>
+            <div class="compliance-block reveal" id="pipeline-completo">
+                <h3>Pipeline completo do projeto</h3>
+                <p>O treinamento e a avaliação são realizados sobre dados históricos; na operação, o modelo treinado é
+                    reutilizado para novas previsões.</p>
+                <div class="pipeline">
+                    <div class="pipeline-step"><b>01</b><strong>RIPE Atlas</strong><small>Medições ICMP: latência,
+                            jitter e perda</small></div>
+                    <div class="pipeline-arrow">↓</div>
+                    <div class="pipeline-step"><b>02</b><strong>Coleta e organização</strong><small>Fluxos, timestamps e
+                            tratamento de dados</small></div>
+                    <div class="pipeline-arrow">↓</div>
+                    <div class="pipeline-step"><b>03</b><strong>Baseline e pré-processamento</strong><small>Referência
+                            histórica por fluxo; tratamento de ausências</small></div>
+                    <div class="pipeline-arrow">↓</div>
+                    <div class="pipeline-step"><b>04</b><strong>Engenharia de atributos</strong><small>11 features de
+                            desvio, perda, histórico e tendência</small></div>
+                    <div class="pipeline-arrow">↓</div>
+                    <div class="pipeline-step"><b>05</b><strong>Treinamento e validação</strong><small>Árvore de Decisão
+                            V1; avaliação retrospectiva</small></div>
+                    <div class="pipeline-arrow">↓</div>
+                    <div class="pipeline-step"><b>06</b><strong>Previsão</strong><small>OK · RISCO · FALHA — 3 rodadas à
+                            frente</small></div>
+                    <div class="pipeline-arrow">↓</div>
+                    <div class="pipeline-step"><b>07</b><strong>Apresentação</strong><small>Dashboard, monitoramento e
+                            alertas</small></div>
+                </div>
+                <p class="pipeline-note">Em uso, as novas medições percorrem o pré-processamento e as 11 features antes
+                    de serem classificadas pelo modelo já treinado; não há retreinamento a cada medição.</p>
+            </div>
+        </section>
+        <section class="section" id="dados-avaliacao">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">03 / DADOS E AVALIAÇÃO</span>
+                    <h2>Dados, períodos e <span class="accent">avaliação.</span></h2>
+                    <p>O projeto utiliza medições ICMP do RIPE Atlas, organizadas por fluxo, para calcular referências
+                        históricas e características temporais usadas pela Árvore de Decisão V1.</p>
+                </div>
+                <div class="data-grid">
+                    <article class="data-card reveal">
+                        <h3>Origem e períodos</h3>
+                        <p><strong>Origem:</strong> RIPE Atlas (ICMP).</p>
+                        <p><strong>Período A:</strong> 06/09/2026 04:32 UTC a 13/09/2026 04:32 UTC — referência
+                            histórica (baseline).</p>
+                        <p><strong>Período B:</strong> 13/09/2026 04:32 UTC a 20/09/2026 04:32 UTC — período posterior
+                            de análise.</p>
+                        <p>As datas se referem à configuração de coleta do projeto, não necessariamente ao intervalo de
+                            todas as capturas exibidas.</p>
+                    </article>
+                    <article class="data-card reveal">
+                        <h3>Entradas e atributos</h3>
+                        <p><strong>Dados-base:</strong> timestamp, identificação do fluxo, latência média, perda de
+                            pacotes e jitter.</p>
+                        <p><strong>11 atributos:</strong> z_robusto, aumento_pct, jitter_relativo, perda_pct,
+                            timeout_atual, n5_timeout, n5_aumento80, n5_risco, z_delta1, z_media3_ant e z_inclin5.</p>
+                        <p>O status real é usado para avaliação e não como variável de entrada da previsão.</p>
+                    </article>
+                    <article class="data-card reveal">
+                        <h3>Estratégia de avaliação</h3>
+                        <p>Treinamento e validação documentados para a Árvore de Decisão V1, com análise de F1-macro e
+                            recall por classe. A separação temporal entre referência e observações posteriores evita
+                            utilizar medições futuras na construção do baseline.</p>
+                        <p><strong>Saída:</strong> classe prevista OK, RISCO ou FALHA para três rodadas de medição à
+                            frente (cerca de 12 minutos quando a cadência é de quatro minutos).</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="inteligencia">
+            <div class="container ai-layout">
+                <div class="reveal"><span class="kicker">04 / INTELIGÊNCIA ARTIFICIAL</span>
+                    <h2>Uma árvore que ajuda a enxergar <span class="accent">adiante.</span></h2>
+                    <p class="lead">O modelo utiliza uma Árvore de Decisão para estimar o estado da rede três rodadas de
+                        medição à frente.</p>
+                    <p class="muted">Quando as rodadas ocorrem aproximadamente a cada quatro minutos, isso corresponde a
+                        um horizonte estimado de 12 minutos. Trata-se de uma classificação preditiva baseada em padrões
+                        aprendidos, não de uma garantia de antecipação de falhas.</p><a class="text-link"
+                        href="https://github.com/HenriqueUBC/icmpmaster" rel="noopener noreferrer"
+                        target="_blank">Explorar a implementação no GitHub ↗</a>
+                </div>
+                <div class="prediction-card reveal">
+                    <div class="prediction-top"><span>HORIZONTE DE PREVISÃO</span><span class="prediction-icon">✳</span>
+                    </div>
+                    <div class="big-number">~12<span> min</span></div>
+                    <div class="prediction-divider"></div>
+                    <p>Três rodadas à frente, em cadência aproximada de quatro minutos.</p>
+                    <div class="states"><span class="state ok">● OK</span><span class="state risk">● RISCO</span><span
+                            class="state fail">● FALHA</span></div><small>Representação conceitual; não exibe previsão
+                        em tempo real.</small>
+                </div>
+            </div>
+        </section>
+        <section class="section section-dark" id="recursos">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">05 / FUNCIONALIDADES</span>
+                    <h2>Conheça o <span class="accent">ICMPMASTER.</span></h2>
+                    <p>Recursos para acompanhar a qualidade da rede, demonstrar cenários e compreender o comportamento
+                        do modelo.</p>
+                </div>
+                <div class="cards resources">
+                    <article class="card reveal"><span class="card-icon">▥</span>
+                        <h3>Dashboard histórico</h3>
+                        <p>Visualização de medições, indicadores e comportamento da conectividade ao longo do tempo.</p>
+                    </article>
+                    <article class="card reveal"><span class="card-icon">◎</span>
+                        <h3>Monitoramento automático</h3>
+                        <p>Processamento de medições provenientes do RIPE Atlas com geração de previsões.</p>
+                    </article>
+                    <article class="card reveal"><span class="card-icon">⚡</span>
+                        <h3>Simulador de eventos</h3>
+                        <p>Cenários controlados para demonstrar condições normais, de risco e de falha.</p>
+                    </article>
+                    <article class="card reveal"><span class="card-icon">⌘</span>
+                        <h3>Monitoramento ao vivo</h3>
+                        <p>Acompanhamento de dispositivos por medições ICMP e aplicação do modelo.</p>
+                    </article>
+                    <article class="card reveal"><span class="card-icon">◷</span>
+                        <h3>Verificação posterior</h3>
+                        <p>Comparação entre previsões registradas e condições observadas depois.</p>
+                    </article>
+                    <article class="card reveal"><span class="card-icon">≋</span>
+                        <h3>Experimentos</h3>
+                        <p>Avaliações e comparações do comportamento dos modelos em dados sintéticos e reais.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="tecnologias">
+            <div class="container tech-layout">
+                <div class="reveal"><span class="kicker">06 / TECNOLOGIAS</span>
+                    <h2>Ferramentas que dão vida ao <span class="accent">projeto.</span></h2>
+                    <p class="muted">Uma integração de programação, redes de computadores, visualização e aprendizado de
+                        máquina.</p>
+                </div>
+                <div class="tech-tags reveal">
+                    <span>Python</span><span>Streamlit</span><span>scikit-learn</span><span>Pandas</span><span>NumPy</span><span>Plotly</span><span>RIPE
+                        Atlas</span><span>ICMP</span><span>Git &amp; GitHub</span><span>Árvore de Decisão</span></div>
+            </div>
+        </section>
+        <section class="section section-dark" id="resultados">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">07 / RESULTADOS</span>
+                    <h2>Resultados e <span class="accent">evidências reais.</span></h2>
+                    <p>Resultados registrados para a Árvore de Decisão V1 na validação do projeto. São métricas de
+                        classificação e não totais de eventos ou medições do dashboard.</p>
+                </div>
+                <div class="metric-grid">
+                    <article class="metric reveal"><strong>0,7143</strong><span>F1-macro de validação</span></article>
+                    <article class="metric reveal"><strong>68,3%</strong><span>Recall da classe FALHA</span></article>
+                    <article class="metric reveal"><strong>34,2%</strong><span>Recall da classe RISCO</span></article>
+                </div>
+                <p class="result-note">A classe RISCO apresentou menor capacidade de detecção na avaliação. Portanto, as
+                    previsões devem apoiar o monitoramento, não substituir diagnóstico e intervenção humana.</p>
+                <div class="evidence-grid">
+                    <figure class="evidence reveal"><img alt="Captura real do dashboard histórico do ICMPMASTER"
+                            loading="lazy" src="img/dashboard-historico.png" />
+                        <figcaption>Dashboard histórico — medições e evolução da conectividade; não é uma visualização
+                            ao vivo.</figcaption>
+                    </figure>
+                    <figure class="evidence reveal"><img
+                            alt="Captura real do monitoramento automático com dados RIPE Atlas" loading="lazy"
+                            src="img/monitoramento-automatico.png" />
+                        <figcaption>Monitoramento automático — previsões registradas a partir das medições do RIPE
+                            Atlas.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="demonstracao">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">08 / DEMONSTRAÇÃO</span>
+                    <h2>O sistema <span class="accent">em uso.</span></h2>
+                    <p>Interfaces reais do projeto, incluindo simulação de cenários e acompanhamento de medições.</p>
+                </div>
+                <div class="evidence-grid">
+                    <figure class="evidence reveal"><img alt="Captura real do simulador de eventos" loading="lazy"
+                            src="img/simulador-eventos.png" />
+                        <figcaption>Simulador de eventos — cenários controlados para demonstração; não são previsões de
+                            eventos reais.</figcaption>
+                    </figure>
+                    <figure class="evidence reveal"><img alt="Captura real da interface de monitoramento ao vivo"
+                            loading="lazy" src="img/monitoramento-ao-vivo.png" />
+                        <figcaption>Interface de monitoramento ao vivo — captura de tela, sem conexão ativa nesta
+                            página.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="section section-dark" id="limitacoes">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">09 / LIMITAÇÕES</span>
+                    <h2>O que a previsão <span class="accent">não garante.</span></h2>
+                </div>
+                <div class="cards three">
+                    <article class="card reveal">
+                        <h3>Horizonte aproximado</h3>
+                        <p>Três rodadas de medição representam cerca de 12 minutos apenas quando a cadência é de
+                            aproximadamente quatro minutos.</p>
+                    </article>
+                    <article class="card reveal">
+                        <h3>Desempenho desigual</h3>
+                        <p>As classes apresentam desempenhos diferentes, especialmente RISCO, cuja detecção ainda
+                            precisa melhorar.</p>
+                    </article>
+                    <article class="card reveal">
+                        <h3>Escopo dos dados</h3>
+                        <p>O modelo foi construído sobre medições ICMP do RIPE Atlas. Seu desempenho não deve ser
+                            generalizado sem novas validações.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="video">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">10 / VÍDEO PITCH</span>
+                    <h2>ICMPMASTER em <span class="accent">90 segundos.</span></h2>
+                    <p>O vídeo será incorporado aqui após a publicação no YouTube como não listado.</p>
+                </div>
+                <div class="video-placeholder reveal" id="video-pitch"><span aria-hidden="true">▶</span><strong>Vídeo em
+                        preparação</strong>
+                    <p>Publicação e incorporação pendentes.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section section-dark" id="equipe">
+            <div class="container">
+                <div class="section-heading reveal"><span class="kicker">11 / EQUIPE E FONTES</span>
+                    <h2>Projeto acadêmico e <span class="accent">referências.</span></h2>
+                    <p>Projeto interdisciplinar de Redes de Computadores, Estrutura de Dados II e Análise de Sistemas
+                        (2026).</p>
+                </div>
+
+                <div class="academic-fields">
+                    <p><strong>Integrantes:</strong> <span class="pending">Eduardo Quintino Filho, Felipe Veiga da Silva, Henrique de Aguiar Fernandes, Niccolas Lupetti dos Santos, Tharik Lima da Silva</span>
+                    <p><strong>Curso:</strong> <span class="pending">Ciência da computação</span></p>
+                    <p><strong>Instituição:</strong> <span class="pending">Centro Universitário Braz Cubas</span></p>
+                    <p><strong>Orientador(a):</strong> <span class="pending">Andrea Ono Sakai</span></p>
+                    <p><strong>Repositório:</strong> <a href="https://github.com/HenriqueUBC/icmpmaster"
+                            rel="noopener noreferrer" target="_blank">github.com/HenriqueUBC/icmpmaster</a></p>
+                </div>
+                <div class="references">
+                    <a href="https://atlas.ripe.net/" rel="noopener noreferrer" target="_blank">RIPE Atlas — plataforma
+                        de medições de rede ↗</a>
+                    <a href="https://scikit-learn.org/stable/modules/tree.html" rel="noopener noreferrer"
+                        target="_blank">scikit-learn — Árvores de Decisão ↗</a>
+                    <a href="https://github.com/HenriqueUBC/icmpmaster" rel="noopener noreferrer"
+                        target="_blank">ICMPMASTER — repositório e documentação ↗</a>
+                </div>
+            </div>
+        </section>
+        <section class="section cta-section" id="projeto">
+            <div class="container cta-box reveal"><span class="kicker">12 / CÓDIGO E DOCUMENTAÇÃO</span>
+                <h2>Conheça o projeto <span class="accent">por dentro.</span></h2>
+                <p>Explore o código-fonte, os notebooks, os experimentos e a documentação técnica disponíveis no
+                    repositório.</p><a class="btn btn-primary" href="https://github.com/HenriqueUBC/icmpmaster"
+                    rel="noopener noreferrer" target="_blank">Abrir repositório no GitHub ↗</a>
+                <p class="cta-note">Projeto acadêmico interdisciplinar: Redes de Computadores, Estrutura de Dados II e
+                    Análise de Sistemas.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div><a class="brand" href="#inicio"><img alt="" class="brand-logo" height="40"
+                        src="img/logo-icmpmaster.png" width="40" /> ICMP<span>MASTER</span></a>
+                <p>Monitoramento inteligente de redes.</p>
+            </div>
+            <div class="footer-right"><span>Projeto acadêmico · 2026</span><a href="#topo">Voltar ao topo ↑</a></div>
         </div>
-        <div class="network-art reveal" aria-label="Ilustração conceitual de uma rede monitorada">
-          <div class="art-top"><span class="art-label">NETWORK / OVERVIEW</span><span class="art-live"><i></i> DEMONSTRAÇÃO VISUAL</span></div>
-          <svg viewBox="0 0 460 315" role="img" aria-label="Nós conectados representando uma rede" class="network-svg">
-            <defs><linearGradient id="linegrad"><stop stop-color="#00d5ff"/><stop offset="1" stop-color="#796dff"/></linearGradient></defs>
-            <g stroke="url(#linegrad)" stroke-width="1.5" opacity=".55"><path d="M230 151L93 80M230 151L368 79M230 151L92 248M230 151L367 250M93 80L368 79M92 248L367 250"/></g>
-            <g fill="#0b2439" stroke="#3ee4ff" stroke-width="2"><circle cx="93" cy="80" r="21"/><circle cx="368" cy="79" r="21"/><circle cx="92" cy="248" r="21"/><circle cx="367" cy="250" r="21"/></g>
-            <circle cx="230" cy="151" r="52" fill="#00d5ff" opacity=".08"/><circle cx="230" cy="151" r="36" fill="#0b2439" stroke="#3ee4ff" stroke-width="3"/><circle cx="230" cy="151" r="10" fill="#3ee4ff"/>
-            <g fill="#3ee4ff"><circle cx="93" cy="80" r="6"/><circle cx="368" cy="79" r="6"/><circle cx="92" cy="248" r="6"/><circle cx="367" cy="250" r="6"/></g>
-            <g fill="#9fb6cf" font-size="12" font-family="system-ui"><text x="57" y="43">NODE 01</text><text x="331" y="43">NODE 02</text><text x="57" y="291">NODE 03</text><text x="331" y="291">NODE 04</text><text x="197" y="211">PREDITOR</text></g>
-          </svg>
-          <div class="art-bottom"><span><b>OK</b> / RISCO / FALHA</span><span>Horizonte ~12 min</span></div>
-        </div>
-      </div>
-      <div class="hero-glow" aria-hidden="true"></div>
-    </section>
-    <section class="section section-about" id="sobre">
-      <div class="container"><div class="section-heading reveal"><span class="kicker">01 / O PROJETO</span><h2>Do monitoramento à <span class="accent">antecipação.</span></h2><p>Uma rede pode apresentar sinais de degradação antes de uma falha. O ICMPMASTER explora como transformar medições em informações úteis para acompanhar a conectividade.</p></div>
-        <div class="cards three"><article class="card reveal"><span class="card-icon">◉</span><h3>Observar</h3><p>Acompanhar latência, jitter e perda de pacotes em medições de rede.</p></article><article class="card reveal"><span class="card-icon">⌁</span><h3>Interpretar</h3><p>Extrair características das medições e identificar comportamentos fora do padrão.</p></article><article class="card reveal"><span class="card-icon">↗</span><h3>Estimar</h3><p>Usar uma Árvore de Decisão para estimar a condição futura da conectividade.</p></article></div>
-      </div>
-    </section>
-    <section class="section section-dark" id="processo"><div class="container"><div class="section-heading reveal"><span class="kicker">02 / METODOLOGIA</span><h2>Como o sistema <span class="accent">funciona?</span></h2><p>Um fluxo de processamento que conecta medições, análise e visualização.</p></div>
-      <div class="steps"><article class="step reveal"><span class="step-no">01</span><h3>Coleta</h3><p>Medições ICMP e dados de conectividade obtidos em diferentes modalidades de monitoramento.</p></article><article class="step reveal"><span class="step-no">02</span><h3>Tratamento</h3><p>Organização dos dados e cálculo de características relevantes para o modelo.</p></article><article class="step reveal"><span class="step-no">03</span><h3>Predição</h3><p>Aplicação do modelo treinado para estimar OK, RISCO ou FALHA.</p></article><article class="step reveal"><span class="step-no">04</span><h3>Visualização</h3><p>Apresentação das informações no dashboard e verificação posterior das previsões.</p></article></div></div></section>
-    <section class="section" id="inteligencia"><div class="container ai-layout"><div class="reveal"><span class="kicker">03 / INTELIGÊNCIA ARTIFICIAL</span><h2>Uma árvore que ajuda a enxergar <span class="accent">adiante.</span></h2><p class="lead">O modelo utiliza uma Árvore de Decisão para estimar o estado da rede três rodadas de medição à frente.</p><p class="muted">Quando as rodadas ocorrem aproximadamente a cada quatro minutos, isso corresponde a um horizonte estimado de 12 minutos. Trata-se de uma previsão probabilística baseada em padrões aprendidos, e não de uma garantia de antecipação de toda falha.</p><a class="text-link" href="https://github.com/HenriqueUBC/icmpmaster" target="_blank" rel="noopener noreferrer">Explorar a implementação no GitHub ↗</a></div>
-      <div class="prediction-card reveal"><div class="prediction-top"><span>HORIZONTE DE PREVISÃO</span><span class="prediction-icon">✳</span></div><div class="big-number">~12<span> min</span></div><div class="prediction-divider"></div><p>Três rodadas à frente, em cadência aproximada de quatro minutos.</p><div class="states"><span class="state ok">● OK</span><span class="state risk">● RISCO</span><span class="state fail">● FALHA</span></div><small>Representação conceitual; não exibe previsão em tempo real.</small></div>
-    </div></section>
-    <section class="section section-dark" id="recursos"><div class="container"><div class="section-heading reveal"><span class="kicker">04 / FUNCIONALIDADES</span><h2>Conheça o <span class="accent">ICMPMASTER.</span></h2><p>Recursos para acompanhar a qualidade da rede, demonstrar cenários e compreender o comportamento do modelo.</p></div>
-      <div class="cards resources"><article class="card reveal"><span class="card-icon">▥</span><h3>Dashboard histórico</h3><p>Visualização de medições, indicadores e comportamento da conectividade ao longo do tempo.</p></article><article class="card reveal"><span class="card-icon">◎</span><h3>Monitoramento automático</h3><p>Processamento de medições provenientes do RIPE Atlas com geração de previsões.</p></article><article class="card reveal"><span class="card-icon">⚡</span><h3>Simulador de eventos</h3><p>Cenários controlados para demonstrar condições normais, de risco e de falha.</p></article><article class="card reveal"><span class="card-icon">⌘</span><h3>Monitoramento ao vivo</h3><p>Acompanhamento de dispositivos por medições ICMP e aplicação do modelo.</p></article><article class="card reveal"><span class="card-icon">◷</span><h3>Verificação posterior</h3><p>Comparação entre previsões registradas e condições observadas depois.</p></article><article class="card reveal"><span class="card-icon">≋</span><h3>Experimentos</h3><p>Avaliações e comparações do comportamento dos modelos em dados sintéticos e reais.</p></article></div>
-    </div></section>
-    <section class="section" id="tecnologias"><div class="container tech-layout"><div class="reveal"><span class="kicker">05 / TECNOLOGIAS</span><h2>Ferramentas que dão vida ao <span class="accent">projeto.</span></h2><p class="muted">Uma integração de programação, redes de computadores, visualização e aprendizado de máquina.</p></div><div class="tech-tags reveal"><span>Python</span><span>Streamlit</span><span>scikit-learn</span><span>Pandas</span><span>NumPy</span><span>Plotly</span><span>RIPE Atlas</span><span>ICMP</span><span>Git & GitHub</span><span>Árvore de Decisão</span></div></div></section>
-    <section class="section cta-section" id="projeto"><div class="container cta-box reveal"><span class="kicker">06 / CÓDIGO E DOCUMENTAÇÃO</span><h2>Conheça o projeto <span class="accent">por dentro.</span></h2><p>Explore o código-fonte, os notebooks, os experimentos e a documentação técnica disponíveis no repositório.</p><a class="btn btn-primary" href="https://github.com/HenriqueUBC/icmpmaster" target="_blank" rel="noopener noreferrer">Abrir repositório no GitHub ↗</a><p class="cta-note">Projeto acadêmico interdisciplinar: Redes de Computadores, Estrutura de Dados II e Análise de Sistemas.</p></div></section>
-  </main>
-  <footer class="footer"><div class="container footer-inner"><div><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">⌁</span> ICMP<span>MASTER</span></a><p>Monitoramento inteligente de redes.</p></div><div class="footer-right"><span>Projeto acadêmico · 2026</span><a href="#topo">Voltar ao topo ↑</a></div></div></footer>
+    </footer>
 </body>
+
 </html>
