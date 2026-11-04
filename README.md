@@ -436,4 +436,10 @@ O projeto demonstra a aplicação prática dessas tecnologias em um sistema de a
 
 ---
 
+**LINK DO VIDEO EXPLICATIVO - https://youtu.be/tdaAa9E36Ng**
+
+**LINK DA PAGINA DO ARTIGO - https://henriqueubc.github.io/icmpmaster/**
+
+**LINK DO REPOSITÓRIO - https://github.com/HenriqueUBC/icmpmaster**
+
 **ICMPMASTER — Monitoramento, análise e previsão da qualidade da rede.**

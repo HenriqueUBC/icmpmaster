@@ -559,6 +559,22 @@ h1 em {
     box-sizing: border-box;
 }
 
+#pipeline-completo .pipeline-statuses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+#pipeline-completo .pipeline-statuses .state {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
 #pipeline-completo .pipeline-arrow {
     text-align: center;
 }

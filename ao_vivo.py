@@ -154,8 +154,16 @@ def _delta_risco(b: Baseline):
 
 
 def risco_simulavel(b: Baseline) -> bool:
-    return _delta_risco(b) is not None
+    # Baseline constante de latência muito baixa:
+    # a resolução do ping pode impedir a simulação de RISCO.
+    if (
+        0 < b.mediana <= 1.0
+        and b.mad == 0
+        and b.iqr == 0
+    ):
+        return False
 
+    return _delta_risco(b) is not None
 
 def simular_medicao(base: dict, cenario: str, b: Baseline) -> dict:
     """Substitui uma medição por uma sintética, marcada como 'simulada'.

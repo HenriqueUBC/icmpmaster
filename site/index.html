@@ -122,77 +122,102 @@
                 </div>
             </div>
         </section>
-        <section class="section section-dark" id="processo">
-            <div class="container">
-                <div class="section-heading reveal"><span class="kicker">02 / METODOLOGIA</span>
-                    <h2>Como o sistema <span class="accent">funciona?</span></h2>
-                    <p>Um fluxo de processamento que conecta medições, análise e visualização.</p>
-                </div>
-                <div class="steps">
-                    <article class="step reveal"><span class="step-no">01</span>
-                        <h3>Coleta</h3>
-                        <p>Medições ICMP provenientes do RIPE Atlas, utilizadas na construção da base de análise.</p>
-                    </article>
-                    <article class="step reveal"><span class="step-no">02</span>
-                        <h3>Tratamento</h3>
-                        <p>Organização dos dados e cálculo de características relevantes para o modelo.</p>
-                    </article>
-                    <article class="step reveal"><span class="step-no">03</span>
-                        <h3>Predição</h3>
-                        <p>Aplicação do modelo treinado para estimar OK, RISCO ou FALHA.</p>
-                    </article>
-                    <article class="step reveal"><span class="step-no">04</span>
-                        <h3>Visualização</h3>
-                        <p>Apresentação das informações no dashboard e verificação posterior das previsões.</p>
-                    </article>
-                </div>
-            </div>
-            <div class="pipeline">
-                <div class="step">
-                    <h3>RIPE Atlas</h3>
-                    <p>Origem dos dados</p>
+        
+<section class="section section-dark" id="processo">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="kicker">02 / METODOLOGIA</span>
+            <h2>Como o sistema <span class="accent">funciona?</span></h2>
+            <p>Um fluxo de processamento que conecta medições, análise e visualização.</p>
+        </div>
+
+        <!-- Quatro cartões originais -->
+        <div class="steps">
+            <article class="step reveal">
+                <span class="step-no">01</span>
+                <h3>Coleta</h3>
+                <p>Medições ICMP provenientes do RIPE Atlas, utilizadas na construção da base de análise.</p>
+            </article>
+
+            <article class="step reveal">
+                <span class="step-no">02</span>
+                <h3>Tratamento</h3>
+                <p>Organização dos dados e cálculo de características relevantes para o modelo.</p>
+            </article>
+
+            <article class="step reveal">
+                <span class="step-no">03</span>
+                <h3>Predição</h3>
+                <p>Aplicação do modelo treinado para estimar OK, RISCO ou FALHA.</p>
+            </article>
+
+            <article class="step reveal">
+                <span class="step-no">04</span>
+                <h3>Visualização</h3>
+                <p>Apresentação das informações no dashboard e verificação posterior das previsões.</p>
+            </article>
+        </div>
+
+        <div class="compliance-block reveal" id="pipeline-completo">
+            <h3>Fluxo de funcionamento do ICMPMASTER</h3>
+            <p>Das medições ICMP à apresentação das previsões.</p>
+
+            <div class="pipeline" role="group"
+                 aria-label="Fluxo de funcionamento do ICMPMASTER">
+
+                <div class="pipeline-step">
+                    <b>01</b>
+                    <strong>RIPE Atlas</strong>
+                    <small>Coleta de medições ICMP: latência, jitter e perda de pacotes.</small>
                 </div>
 
-    <div class="step">
-        <h3>Pré-processamento</h3>
-        <p>Preparação das medições</p>
-    </div>
+                <div class="pipeline-arrow" aria-hidden="true">↓</div>
 
-    <div class="step">
-        <h3>Árvore de Decisão</h3>
-        <p>Treinamento e previsão</p>
-    </div>
-</div>
-            <div class="compliance-block reveal" id="pipeline-completo">
-                <h3>Pipeline completo do projeto</h3>
-                <p>O treinamento e a avaliação são realizados sobre dados históricos; na operação, o modelo treinado é
-                    reutilizado para novas previsões.</p>
-                <div class="pipeline">
-                    <div class="pipeline-step"><b>01</b><strong>RIPE Atlas</strong><small>Medições ICMP: latência,
-                            jitter e perda</small></div>
-                    <div class="pipeline-arrow">↓</div>
-                    <div class="pipeline-step"><b>02</b><strong>Coleta e organização</strong><small>Fluxos, timestamps e
-                            tratamento de dados</small></div>
-                    <div class="pipeline-arrow">↓</div>
-                    <div class="pipeline-step"><b>03</b><strong>Baseline e pré-processamento</strong><small>Referência
-                            histórica por fluxo; tratamento de ausências</small></div>
-                    <div class="pipeline-arrow">↓</div>
-                    <div class="pipeline-step"><b>04</b><strong>Engenharia de atributos</strong><small>11 features de
-                            desvio, perda, histórico e tendência</small></div>
-                    <div class="pipeline-arrow">↓</div>
-                    <div class="pipeline-step"><b>05</b><strong>Treinamento e validação</strong><small>Árvore de Decisão
-                            V1; avaliação retrospectiva</small></div>
-                    <div class="pipeline-arrow">↓</div>
-                    <div class="pipeline-step"><b>06</b><strong>Previsão</strong><small>OK · RISCO · FALHA — 3 rodadas à
-                            frente</small></div>
-                    <div class="pipeline-arrow">↓</div>
-                    <div class="pipeline-step"><b>07</b><strong>Apresentação</strong><small>Dashboard, monitoramento e
-                            alertas</small></div>
+                <div class="pipeline-step">
+                    <b>02</b>
+                    <strong>Pré-processamento</strong>
+                    <small>Organização dos dados, baseline por fluxo e cálculo de 11 características.</small>
                 </div>
-                <p class="pipeline-note">Em uso, as novas medições percorrem o pré-processamento e as 11 features antes
-                    de serem classificadas pelo modelo já treinado; não há retreinamento a cada medição.</p>
+
+                <div class="pipeline-arrow" aria-hidden="true">↓</div>
+
+                <div class="pipeline-step">
+                    <b>03</b>
+                    <strong>Árvore de Decisão V1</strong>
+                    <small>Aplicação do modelo previamente treinado para estimar a condição futura da rede.</small>
+                </div>
+
+                <div class="pipeline-arrow" aria-hidden="true">↓</div>
+
+                <div class="pipeline-step">
+                    <b>04</b>
+                    <strong>Classificação prevista</strong>
+                    <small class="pipeline-statuses" aria-label="Resultados possíveis">
+                        <span class="state ok">OK</span>
+                        <span class="state risk">RISCO</span>
+                        <span class="state fail">FALHA</span>
+                    </small>
+                </div>
+
+                <div class="pipeline-arrow" aria-hidden="true">↓</div>
+
+                <div class="pipeline-step">
+                    <b>05</b>
+                    <strong>Dashboard</strong>
+                    <small>Visualização, acompanhamento e análise das previsões.</small>
+                </div>
             </div>
-        </section>
+
+            <p class="pipeline-note">
+                A árvore V1 foi treinada e avaliada com dados históricos.
+                Durante o monitoramento, o modelo é reutilizado sem
+                retreinamento a cada medição. A previsão considera as
+                próximas três rodadas (aproximadamente 12 minutos).
+            </p>
+        </div>
+    </div>
+</section>
+
         <section class="section" id="dados-avaliacao">
             <div class="container">
                 <div class="section-heading reveal"><span class="kicker">03 / DADOS E AVALIAÇÃO</span>
@@ -380,10 +405,8 @@
                     <h2>ICMPMASTER em <span class="accent">90 segundos.</span></h2>
                     <p>O vídeo será incorporado aqui após a publicação no YouTube como não listado.</p>
                 </div>
-                <div class="video-placeholder reveal" id="video-pitch"><span aria-hidden="true">▶</span><strong>Vídeo em
-                        preparação</strong>
-                    <p>Publicação e incorporação pendentes.</p>
-                </div>
+                <div class="video-container">
+                    <iframe width="1120" height="720" src="https://www.youtube.com/embed/tdaAa9E36Ng?si=IcmA1sf85to3Yv20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
         <section class="section section-dark" id="equipe">
