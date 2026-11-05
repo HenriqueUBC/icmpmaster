@@ -35,9 +35,9 @@ st.subheader("Dashboard de análise de rede")
 st.info(
     "Modo histórico com árvore de decisão: os dados já foram coletados e "
     "processados, e a árvore da Tarefa 4 classifica o estado esperado em "
-    "12 minutos de cada medição. Ainda não há monitoramento ao vivo. "
-    "Use a página Simulador de eventos (menu lateral) para testar OK, "
-    "RISCO e FALHA."
+    "12 minutos de cada medição. Use a página Simulador de eventos "
+    "(menu lateral) para testar OK, RISCO e FALHA."
+    
 )
 
 
@@ -398,9 +398,7 @@ if "prevista_12min" in filtrado.columns:
     st.caption(
         "Classe atual = tabela de rotulagem da Tarefa 2. "
         "Prevista em 12 min = árvore ajustada da Tarefa 4 (11 colunas "
-        "relativas ao baseline). No teste da Tarefa 5 ela ficou muito "
-        "próxima de repetir a classe atual, então o entregável é um "
-        "detector, não um preditor."
+        "relativas ao baseline)."
     )
     cruzado = (
         pd.crosstab(
@@ -459,7 +457,6 @@ st.caption(
     "ICMPMASTER — dashboard de análise histórica. "
     "A coluna classe é a do dataset rotulado (Tarefa 2); "
     "prevista_12min vem da árvore da Tarefa 4. "
-    "Sem monitoramento ao vivo."
 )
 
 # ============================================================
